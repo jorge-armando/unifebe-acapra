@@ -1,0 +1,22 @@
+@layer base {
+    :focus {
+        outline: 0;
+    }
+
+    :focus-visible {
+        transition: box-shadow var(--transition-default);
+        box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+    }
+
+    html {
+        font-size: 62.5%;
+    }
+
+    body {
+        color: var(--body-color);
+        font-family: var(--body-fontFamily);
+        font-weight: var(--body-fontWeight);
+        font-size: var(--body-fontSize);
+        line-height: var(--body-lineHeight);
+    }
+}
