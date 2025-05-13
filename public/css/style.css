@@ -54,7 +54,7 @@
 
 
   #queroAdotar {
-      margin-top: 40px;
+      margin-top: 10px;
       text-align: center;
   }
 
@@ -74,12 +74,11 @@
   }
 
   .form-container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 100%;
-    /* border: 1px solid #ccc; */
-    max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      width: 40%;
+      /* border: 1px solid #ccc; */
   }
 
   .info-container {
@@ -130,7 +129,7 @@
     margin: 20px 0;
   }
 
-.submit-btn {
+.submit-button {
     background-color: var(--paleta1);
     color: white;
     width: 100px;
@@ -142,3 +141,64 @@
     cursor: pointer;
     }
 
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 480px) {
+  .title1 {
+    font-size: 28px;
+  }
+
+  .title2 {
+    font-size: 24px;
+  }
+
+  .title3 {
+    font-size: 20px;
+  }
+
+  .par1,
+  .par1bold {
+    font-size: 16px;
+  }
+
+  .par2 {
+    font-size: 14px;
+  }
+
+  .form-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .input-field {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+
+  .radio-btn {
+    width: 18px;
+    height: 18px;
+  }
+
+  .submit-button {
+    width: 100%;
+    font-size: 18px;
+    height: 48px;
+  }
+
+  #iconUser {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  #queroAdotar {
+    margin-top: 0px;
+  }
+}
