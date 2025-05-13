@@ -1,0 +1,142 @@
+  :root {
+      --paleta1: #555086;
+  }
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  html,
+  body {
+      width: 100%;
+      height: 100%;
+  }
+
+  .title1 {
+      font-weight: 800;
+      font-family: 'Lora', serif;
+      font-size: 40px;
+  }
+
+  .title2 {
+      font-weight: 600;
+      font-family: 'Lora', serif;
+      font-size: 36px;
+  }
+
+  .title3 {
+      font-weight: 600;
+      font-family: 'Lora', serif;
+      font-size: 25px;
+  }
+
+  .par2 {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-weight: 400;
+  }
+
+  .par1 {
+      font-weight: 400;
+      font-family: 'Lora', serif;
+      font-size: 20px;
+  }
+
+  
+  .par1bold {
+      font-weight: 800;
+      font-family: 'Lora', serif;
+      font-size: 20px;
+  }
+
+
+
+  #queroAdotar {
+      margin-top: 40px;
+      text-align: center;
+  }
+
+
+  #iconUser {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+  }
+
+  .page-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* border: 1px solid #ccc; */
+
+  }
+
+  .form-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      width: 40%;
+      /* border: 1px solid #ccc; */
+  }
+
+  .info-container {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    /*  border: 1px solid #ccc; */
+
+  }
+
+  #iconUser {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+  }
+
+  .input-field {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 8px;
+      background-color: white;
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+  }
+
+  .radio-btn {
+      width: 20px;
+      height: 20px;
+      border: 2px solid;
+      border-radius: 50%;
+      background-color: white;
+      cursor: pointer;
+  }
+
+  label {
+      font-weight: 400;
+      font-family: 'Lora', serif;
+      font-size: 20px;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: #000000;
+    margin: 20px 0;
+  }
+
+.submit-btn {
+    background-color: var(--paleta1);
+    color: white;
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-family: 'Lora', serif;
+    cursor: pointer;
+    }
