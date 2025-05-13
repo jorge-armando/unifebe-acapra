@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 class AddPetController extends Controller
 {
-    public function mostrarTela()
+    public function execute()
     {
         return view('admin.addPet');
     }

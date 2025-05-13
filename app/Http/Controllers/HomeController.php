@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
@@ -8,6 +8,6 @@ class HomeController extends Controller
 {
     public function execute()
     {
-        return view('admin.home');
+        return view('pages.home');
     }
 }

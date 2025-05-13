@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 class FormsController extends Controller
 {
-    public function mostrarTela()
+    public function execute()
     {
         return view('admin.forms');
     }
