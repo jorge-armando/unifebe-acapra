@@ -1,0 +1,9 @@
+#website-header {
+    background-image: url("/images/header-background.png");
+    background-repeat: repeat;
+    height: 300px;
+}
+
+#website-header .sou-acapra{
+    background-color: red;
+}

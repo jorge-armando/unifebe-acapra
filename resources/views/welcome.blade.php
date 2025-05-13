@@ -15,8 +15,10 @@
         <link rel="stylesheet" href="{{ asset('css/20-tokens.css') }}">
         <link rel="stylesheet" href="{{ asset('css/30-fonts.css') }}">
         <link rel="stylesheet" href="{{ asset('css/40-base.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     </head>
     <body>
+        @include('components.header')
         <h1>Teste</h1>
         <p>wedawe</p>
     </body>

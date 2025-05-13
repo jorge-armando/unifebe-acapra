@@ -17,7 +17,7 @@
 
         --color-primary: #222;
 
-        --fontFamily-primary: 'Sofia Pro';
+        --fontFamily-primary: 'Lora';
         --fontFamily-secondary: 'sans-serif';
 
         --fontSize-xs: 1.3rem;
@@ -79,7 +79,7 @@
         --body-color: var(--color-primary);
         --body-fontFamily: var(--fontFamily-primary);
         --body-fontWeight: var(--fontWeight-normal);
-        --body-fontSize: var(--fontSize-sm);
+        --body-fontSize: var(--fontSize-md);
         --body-lineHeight: var(--lineHeight-md);
     }
 }
