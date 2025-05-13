@@ -74,11 +74,12 @@
   }
 
   .form-container {
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-      width: 40%;
-      /* border: 1px solid #ccc; */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    /* border: 1px solid #ccc; */
+    max-width: 800px;
   }
 
   .info-container {
