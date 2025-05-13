@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/admin/home.css') }}">
-</head>
-<body>
+@extends('layouts.default')
 
+@section('title', 'Página Inicial')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/admin/home.css') }}">
+@endsection
+
+@section('content')
     <div class="busca-container">
         <button>Buscar</button>
         <input type="text" placeholder="Digite para buscar...">
@@ -30,6 +29,4 @@
             <button>Remover Pet</button>
         </div>
     </div>
-
-</body>
-</html>
+@endsection

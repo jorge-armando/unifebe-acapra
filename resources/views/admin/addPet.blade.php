@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Adicionar Pet</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/admin/addPet.css') }}">
-</head>
-<body>
+@extends('layouts.default')
 
-  <div class="form-container">
+@section('title', 'Adicionar Pet')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/admin/addPet.css') }}">
+@endsection
+
+@section('content')
+    <div class="form-container">
     <h1>Difusor</h1>
 
     <label for="tipo">Tipo</label>
@@ -81,6 +80,4 @@
       <button>Salvar 🐾</button>
     </div>
   </div>
-
-</body>
-</html>
+@endsection
