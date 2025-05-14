@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{{ asset('css/20-tokens.css') }}">
         <link rel="stylesheet" href="{{ asset('css/30-fonts.css') }}">
         <link rel="stylesheet" href="{{ asset('css/40-base.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/layouts/default.css') }}">
         <link rel="stylesheet" href="{{ asset('css/header.css') }}">
         <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
         @yield('styles')
