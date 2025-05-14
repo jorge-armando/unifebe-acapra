@@ -1,32 +1,78 @@
-#website-header {
+#admin-header {
     background-image: url("/images/header-background.png");
     background-repeat: repeat;
     height: 100px;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
     position: relative;
 }
 
-#imgSouAcapra {
-    position: absolute;
-    right: 30px;
-    width: 200px;
-    height: auto;
-    cursor: pointer;
+main {
+    padding: 20px 16px;
 }
 
-#logo-container {
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 16px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 }
 
 #logo {
-    width: 80px;
-    height: auto;
+    height: 60px;
 }
 
-main {
-    padding: 24px 16px;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-links a {
+    background-color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #2d2d2d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #ddd;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.admin-user span {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        height: auto;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #admin-header {
+        height: auto;
+        padding: 16px 0;
+    }
 }
