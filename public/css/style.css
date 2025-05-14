@@ -1,5 +1,7 @@
   :root {
       --paleta1: #555086;
+      --paleta2: #F2F2F2;
+
   }
 
   * {
@@ -141,8 +143,27 @@
     cursor: pointer;
     }
 
+.submit-button2{
+  background-color: var(--paleta1);
+    color: white;
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Lora', serif;
+    cursor: pointer;}
+
 .submit-btn:hover {
     background-color: #45a049;
+}
+
+.retangulo {
+  width: 523px;
+  height: 230px;
+  background-color: var(--paleta2);
+  border-radius: 16px;
+  margin: 100px auto 0;
 }
 
 @media (max-width: 480px) {
@@ -202,4 +223,13 @@
   #queroAdotar {
     margin-top: 0px;
   }
+
+  .retangulo {
+  width: 330px;
+  height: 230px;
+  background-color: var(--paleta2);
+  border-radius: 16px;
+  margin: 30px auto 0;
 }
+}
+
