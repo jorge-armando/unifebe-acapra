@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\AddPetController;
 use App\Http\Controllers\Admin\FormsController;
+use App\Http\Controllers\User\UserHomeController;
+use App\Http\Controllers\User\ListaHomeController;
 
 Route::get('/admin/home', [AdminHomeController::class, 'execute']);
 Route::get('/admin/addpet', [AddPetController::class, 'execute']);
@@ -13,3 +15,7 @@ Route::get('/', [HomeController::class, 'execute']);
 Route::get('/queroAdotar', function () {
     return view('quero_adotar');
 });
+Route::get('/user/home', [UserHomeController::class, 'mostrarTela']);
+Route::get('/user/lista', [ListaHomeController::class, 'mostrarTela']);
+
+

@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.top-bar {
+  background-color: #3f3b67;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url('https://emojiisland.com/cdn/shop/products/Paw_Print_Emoji_grande.png'); /* Use uma imagem de patinhas repetida ou crie uma pattern personalizada */
+  background-repeat: repeat-x;
+  background-size: auto 30px;
+  position: relative;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header-btn {
+  background-color: white;
+  color: #3f3b67;
+  border: none;
+  border-radius: 999px;
+  padding: 5px 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+main {
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.main-btn {
+  background-color: #3f3b67;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+}
