@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AnaliseFormController;
+use App\Http\Controllers\User\EnviadoController;
+use App\Http\Controllers\User\QueroAdotarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
@@ -13,18 +16,10 @@ Route::get('/admin/addpet', [AddPetController::class, 'execute']);
 Route::get('/admin/forms', [formsController::class, 'execute']);
 Route::get('/', [HomeController::class, 'execute']);
 
-Route::get('user/queroAdotar', function () {
-    return view('quero_adotar');
-});
 
-Route::get('admin/analiseFormulario', function () {
-    return view('analise_formulario');
-});
-
-Route::get('user/enviado', function () {
-    return view('enviado_sucesso');
-});
-
+Route::get('/user/queroAdotar', [QueroAdotarController::class, 'execute']);
+Route::get('/admin/analiseFormulario', [AnaliseFormController::class, 'execute']);
+Route::get('/user/enviado', [EnviadoController::class, 'execute']);
 
 Route::get('/user/home', [UserHomeController::class, 'mostrarTela']);
 Route::get('/user/lista', [ListaHomeController::class, 'mostrarTela']);

@@ -1,0 +1,42 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lora', serif;
+    background-color: white;
+}
+
+.main-content {
+    flex: 1;
+}
+
+#website-footer {
+    background-color: #F2F2F2;
+    color: black;
+    padding: 15px 20px;
+    text-align: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.footer-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: black;
+}
+
+.footer-highlight {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555086;
+    margin-bottom: 10px;
+}
+
+.footer-subtext {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+}
