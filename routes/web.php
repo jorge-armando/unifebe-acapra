@@ -12,9 +12,20 @@ Route::get('/admin/home', [AdminHomeController::class, 'execute']);
 Route::get('/admin/addpet', [AddPetController::class, 'execute']);
 Route::get('/admin/forms', [formsController::class, 'execute']);
 Route::get('/', [HomeController::class, 'execute']);
-Route::get('/queroAdotar', function () {
+
+Route::get('user/queroAdotar', function () {
     return view('quero_adotar');
 });
+
+Route::get('admin/analiseFormulario', function () {
+    return view('analise_formulario');
+});
+
+Route::get('user/enviado', function () {
+    return view('enviado_sucesso');
+});
+
+
 Route::get('/user/home', [UserHomeController::class, 'mostrarTela']);
 Route::get('/user/lista', [ListaHomeController::class, 'mostrarTela']);
 
