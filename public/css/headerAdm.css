@@ -32,6 +32,8 @@ main {
 }
 
 .nav-links a {
+    width: 180px;
+    text-align: center;
     background-color: white;
     padding: 8px 16px;
     border-radius: 20px;
@@ -48,10 +50,15 @@ main {
 .admin-user {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     background-color: white;
     padding: 8px 16px;
     border-radius: 20px;
+    font-weight: bold;
+    height: 40px;
+    text-align: center;
+    width: 100%;
 }
 
 .admin-user span {
