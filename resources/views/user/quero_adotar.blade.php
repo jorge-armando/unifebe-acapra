@@ -166,62 +166,86 @@
                 </div>
 
                 <label for="uploadFoto" class="par1bold">Carteira de identidade</label><br>
-                <input type="file" required id="uploadFoto" name="carteira_identidade" class="input-file" accept="image/*"><br><br>
+                <div class="upload-container">
+                    <input type="file" /><br><br>
 
-                <label for="uploadFoto" class="par1bold">Foto do local onde o animal irá ficar (terreno, casa, canil...)</label><br>
-                <input type="file" required id="uploadFoto" name="foto_local" class="input-file" accept="image/*"><br><br>
+                    <label for="uploadFoto" class="par1bold">Foto do local onde o animal irá ficar (terreno, casa,
+                        canil...)</label><br>
+                    <div class="upload-container">
+                        <input type="file" /><br><br>
 
-                <label for="uploadFoto" class="par1bold">Se tiver outros animais, foto dos mesmos e das suas carteiras de vacinação</label><br>
-                <input type="file" required id="uploadFoto" name="carteira_vacinacao_animais" class="input-file" accept="image/*"><br><br>
+                        <label for="uploadFoto" class="par1bold">Se tiver outros animais, foto dos mesmos e das suas
+                            carteiras de vacinação</label><br>
+                        <div class="upload-container">
+                            <input type="file" /><br><br>
 
-                <!-- Imagem apenas para gato -->
-                <label for="uploadFoto" class="par1bold">Foto das telas</label><br>
-                <input type="file" required id="uploadFoto" name="foto_telas" class="input-file" accept="image/*">
+                            <!-- Imagem apenas para gato -->
+                            <label for="uploadFoto" class="par1bold">Foto das telas</label><br>
+                            <div class="upload-container">
+                                <input type="file" />
+                            </div>
+                            <br>
+                            <hr>
 
-                <br>
-                <hr>
+                            <!-- Seção: Termos e condições -->
+                            <div class="info-container">
+                                <img id="iconUser" src="{{ asset('images/iconTerms.png') }}"
+                                    alt="Imagem termos e condições">
+                                <span class="title3">Termos e condições</span>
+                            </div>
 
-                <!-- Seção: Termos e condições -->
-                <div class="info-container">
-                    <img id="iconUser" src="{{ asset('images/iconTerms.png') }}" alt="Imagem termos e condições">
-                    <span class="title3">Termos e condições</span>
-                </div>
+                            <!-- Compromissos com o bem-estar do animal -->
+                            <label class="par1">Você tem condições físicas, mentais e financeiras de manter um animal? Uma
+                                boa
+                                ração?
+                                Visitas ao veterinário? Castração? Passeios?</label><br><br>
+                            <div class="radio-container">
+                                <label>
+                                    <input type="radio" required class="radio-btn" name="condicoes_fisicas" value="sim">
+                                    Sim, eu
+                                    tenho
+                                </label><br><br>
+                                <label>
+                                    <input type="radio" required class="radio-btn" name="condicoes_fisicas" value="nao">
+                                    Não,
+                                    não tenho
+                                </label><br><br><br>
+                            </div>
 
-                <!-- Compromissos com o bem-estar do animal -->
-                <label class="par1">Você tem condições físicas, mentais e financeiras de manter um animal? Uma boa ração? Visitas ao veterinário? Castração? Passeios?</label><br><br>
-                <div class="radio-container">
-                    <label>
-                        <input type="radio" required class="radio-btn" name="condicoes_fisicas" value="sim"> Sim, eu tenho
-                    </label><br><br>
-                    <label>
-                        <input type="radio" required class="radio-btn" name="condicoes_fisicas" value="nao"> Não, não tenho
-                    </label><br><br><br>
-                </div>
+                            <!-- Concordância com castração -->
+                            <label class="par1">A castração e vacinação do animal é OBRIGATÓRIA, você concorda com
+                                isso?</label><br><br>
+                            <div class="radio-container">
+                                <label>
+                                    <input type="radio" required class="radio-btn" name="castracao_vacinacao" value="sim">
+                                    Sim,
+                                    concordo
+                                </label><br><br>
+                                <label>
+                                    <input type="radio" required class="radio-btn" name="castracao_vacinacao" value="nao">
+                                    Não,
+                                    discordo
+                                </label><br><br><br>
+                            </div>
 
-                <!-- Concordância com castração -->
-                <label class="par1">A castração e vacinação do animal é OBRIGATÓRIA, você concorda com isso?</label><br><br>
-                <div class="radio-container">
-                    <label>
-                        <input type="radio" required class="radio-btn" name="castracao_vacinacao" value="sim"> Sim, concordo
-                    </label><br><br>
-                    <label>
-                        <input type="radio" required class="radio-btn" name="castracao_vacinacao" value="nao"> Não, discordo
-                    </label><br><br><br>
-                </div>
+                            <!-- Contribuição financeira -->
+                            <label class="par1">Existe uma taxa de adoção colaborativa de R$30,00. Você concorda em
+                                contribuir?</label><br><br>
+                            <div class="radio-container">
+                                <label>
+                                    <input type="radio" required class="radio-btn" name="adocao_colaborativa" value="sim">
+                                    Sim,
+                                    concordo
+                                </label><br><br>
+                                <label>
+                                    <input type="radio" required class="radio-btn" name="adocao_colaborativa" value="nao">
+                                    Não,
+                                    discordo
+                                </label><br><br><br>
+                            </div>
 
-                <!-- Contribuição financeira -->
-                <label class="par1">Existe uma taxa de adoção colaborativa de R$30,00. Você concorda em contribuir?</label><br><br>
-                <div class="radio-container">
-                    <label>
-                        <input type="radio" required class="radio-btn" name="adocao_colaborativa" value="sim"> Sim, concordo
-                    </label><br><br>
-                    <label>
-                        <input type="radio" required class="radio-btn" name="adocao_colaborativa" value="nao"> Não, discordo
-                    </label><br><br><br>
-                </div>
-
-                <!-- Enviar o formulário -->
-                <button type="submit" class="submit-button">Enviar</button>
+                            <!-- Enviar o formulário -->
+                            <button type="submit" class="submit-button">Enviar</button>
             </form>
         </div>
     </div>

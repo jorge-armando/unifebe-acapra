@@ -1,235 +1,293 @@
-  :root {
-      --paleta1: #555086;
-      --paleta2: #F2F2F2;
+:root {
+    --paleta1: #555086;
+    --paleta2: #F2F2F2;
+}
 
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  }
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Lora', serif;
+    background-color: white;
+}
 
-  html,
-  body {
-      width: 100%;
-      height: 100%;
-  }
+/* Títulos */
+.title1 {
+    font-weight: 800;
+    font-size: 36px;
+    text-align: center;
+}
 
-  .title1 {
-      font-weight: 800;
-      font-family: 'Lora', serif;
-      font-size: 40px;
-  }
+.title2 {
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+}
 
-  .title2 {
-      font-weight: 600;
-      font-family: 'Lora', serif;
-      font-size: 36px;
-  }
+.title3 {
+    font-weight: 600;
+    font-size: 22px;
+}
 
-  .title3 {
-      font-weight: 600;
-      font-family: 'Lora', serif;
-      font-size: 25px;
-  }
+/* Parágrafos */
+.par1,
+.par1bold {
+    font-size: 18px;
+    text-align: justify;
+}
 
-  .par2 {
-      font-family: 'Lora', serif;
-      font-size: 16px;
-      font-weight: 400;
-  }
+.par1bold {
+    font-weight: 800;
+}
 
-  .par1 {
-      font-weight: 400;
-      font-family: 'Lora', serif;
-      font-size: 20px;
-  }
+.par2 {
+    font-size: 16px;
+}
 
-  
-  .par1bold {
-      font-weight: 800;
-      font-family: 'Lora', serif;
-      font-size: 20px;
-  }
+/* Container geral da página */
+.page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
+/* Formulário */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+.info-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
 
-  #queroAdotar {
-      margin-top: 10px;
-      text-align: center;
-  }
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 18px;
+    margin: 5px 0 20px;
+}
 
+.radio-btn {
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
 
-  #iconUser {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-  }
+label {
+    font-size: 18px;
+}
 
-  .page-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      /* border: 1px solid #ccc; */
+/* Botões */
+.submit-button,
+.submit-button2 {
+    background-color: var(--paleta1);
+    color: white;
+    width: 100%;
+    max-width: 200px;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+}
 
-  }
+.submit-button2 {
+    max-width: 240px;
+    font-size: 15px;
+}
 
-  .form-container {
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-      width: 40%;
-      /* border: 1px solid #ccc; */
-  }
+/* Upload de arquivo */
+.upload-container input[type="file"] {
+    padding: 10px;
+    background-color: #5c518c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    max-width: 300px;
+    width: 100%;
+}
 
-  .info-container {
-      display: flex;
-      align-items: center;
-      margin: 10px 0;
-    /*  border: 1px solid #ccc; */
+/* Retângulo decorativo */
+.retangulo {
+    width: 100%;
+    max-width: 520px;
+    height: 230px;
+    background-color: var(--paleta2);
+    border-radius: 16px;
+    margin: 40px auto;
+}
 
-  }
+/* Ícone */
+#iconUser {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+}
 
-  #iconUser {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-  }
+/* Espaçamento entre seções */
+#queroAdotar {
+    margin-top: 20px;
+    text-align: center;
+}
 
-  .input-field {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid black;
-      border-radius: 8px;
-      background-color: white;
-      font-family: 'Lora', serif;
-      font-size: 20px;
-      margin-top: 5px;
-      margin-bottom: 20px;
-  }
-
-  .radio-btn {
-      width: 20px;
-      height: 20px;
-      border: 2px solid;
-      border-radius: 50%;
-      background-color: white;
-      cursor: pointer;
-  }
-
-  label {
-      font-weight: 400;
-      font-family: 'Lora', serif;
-      font-size: 20px;
-  }
-
-  hr {
+/* Separador */
+hr {
     border: 0;
     height: 1px;
     background-color: #000000;
     margin: 20px 0;
-  }
+}
 
-.submit-button {
-    background-color: var(--paleta1);
-    color: white;
-    width: 100px;
-    height: 50px;
-    border: none;
-    border-radius: 8px;
-    font-size: 20px;
-    font-family: 'Lora', serif;
-    cursor: pointer;
+/* Responsivo até 480px */
+@media (max-width: 480px) {
+    .title1 {
+        font-size: 28px;
     }
 
-.submit-button2{
-  background-color: var(--paleta1);
-    color: white;
-    width: 180px;
-    height: 50px;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-family: 'Lora', serif;
-    cursor: pointer;}
+    .title2 {
+        font-size: 22px;
+    }
 
-.submit-btn:hover {
-    background-color: #45a049;
+    .title3 {
+        font-size: 18px;
+    }
+
+    .par1,
+    .par1bold {
+        font-size: 16px;
+    }
+
+    .par2 {
+        font-size: 14px;
+    }
+
+    .input-field {
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    .radio-btn {
+        width: 18px;
+        height: 18px;
+    }
+
+    .submit-button,
+    .submit-button2 {
+        width: 100%;
+        font-size: 16px;
+        height: 45px;
+    }
+
+    #iconUser {
+        width: 30px;
+        height: 30px;
+    }
+
+    .retangulo {
+        max-width: 330px;
+        height: 220px;
+    }
+
+    .upload-container input[type="file"] {
+        padding: 8px;
+        font-size: 14px;
+        max-width: 250px;
+    }
 }
 
-.retangulo {
-  width: 523px;
-  height: 230px;
-  background-color: var(--paleta2);
-  border-radius: 16px;
-  margin: 100px auto 0;
+/* Ajuste específico para iPhone XR e 12 Pro Max (410px a 430px) */
+@media (max-width: 430px) and (min-width: 410px) {
+    .title1 {
+        font-size: 26px;
+    }
+
+    .title2 {
+        font-size: 22px;
+    }
+
+    .par1,
+    .par1bold {
+        font-size: 15px;
+    }
+
+    .par2 {
+        font-size: 13px;
+    }
+
+    .input-field {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .submit-button,
+    .submit-button2 {
+        font-size: 15px;
+    }
+
+    .retangulo {
+        max-width: 300px;
+        height: 210px;
+    }
+
+    .upload-container input[type="file"] {
+        font-size: 13px;
+    }
 }
 
-@media (max-width: 480px) {
-  .title1 {
-    font-size: 28px;
-  }
 
-  .title2 {
-    font-size: 24px;
-  }
+@media (min-width: 1430px) {
+    .form-container {
+        max-width: 800px;
+    }
 
-  .title3 {
-    font-size: 20px;
-  }
+    .input-field {
+        font-size: 20px;
+        padding: 14px;
+    }
 
-  .par1,
-  .par1bold {
-    font-size: 16px;
-  }
+    .submit-button,
+    .submit-button2 {
+        font-size: 18px;
+        height: 50px;
+    }
 
-  .par2 {
-    font-size: 14px;
-  }
+    .retangulo {
+        max-width: 600px;
+        height: 260px;
+    }
 
-  .form-container {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .input-field {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  label {
-    font-size: 16px;
-  }
-
-  .radio-btn {
-    width: 18px;
-    height: 18px;
-  }
-
-  .submit-button {
-    width: 100%;
-    font-size: 18px;
-    height: 48px;
-    margin-bottom:10px
-  }
-
-  #iconUser {
-    width: 32px;
-    height: 32px;
-    margin-right: 8px;
-  }
-
-  #queroAdotar {
-    margin-top: 0px;
-  }
-
-  .retangulo {
-  width: 330px;
-  height: 230px;
-  background-color: var(--paleta2);
-  border-radius: 16px;
-  margin: 30px auto 0;
+    .upload-container input[type="file"] {
+        font-size: 16px;
+        max-width: 360px;
+        padding: 12px;
+    }
 }
-}
-
