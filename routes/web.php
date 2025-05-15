@@ -13,14 +13,16 @@ use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\ListaHomeController;
 
-Route::get('/', [HomeController::class, 'execute']);
-Route::get('/admin/home', [AdminHomeController::class, 'execute']);
-Route::get('/admin/addpet', [AddPetController::class, 'execute']);
+Route::get('/', [UserHomeController::class, 'mostrarTela']);
+Route::get('/pets', [ListaHomeController::class, 'mostrarTela']);
+Route::get('/quero-adotar', [QueroAdotarController::class, 'execute']);
+Route::get('/quero-adotar/enviado', [EnviadoController::class, 'execute']);
+
+Route::get('/admin', [AdminHomeController::class, 'execute']);
+Route::get('/admin/pets', [AdminHomeController::class, 'execute']);
+Route::get('/admin/pets/add', [AddPetController::class, 'execute']);
+Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute']);
 Route::get('/admin/forms', [formsController::class, 'execute']);
-Route::get('/admin/analiseFormulario', [AnaliseFormController::class, 'execute']);
-Route::get('/cadastro', [CadastroController::class, 'execute']);
-Route::get('/login', [LoginController::class, 'execute']);
-Route::get('/user/queroAdotar', [QueroAdotarController::class, 'execute']);
-Route::get('/user/enviado', [EnviadoController::class, 'execute']);
-Route::get('/user/home', [UserHomeController::class, 'mostrarTela']);
-Route::get('/user/lista', [ListaHomeController::class, 'mostrarTela']);
+Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute']);
+Route::get('/admin/cadastro', [CadastroController::class, 'execute']);
+Route::get('/admin/login', [LoginController::class, 'execute']);
