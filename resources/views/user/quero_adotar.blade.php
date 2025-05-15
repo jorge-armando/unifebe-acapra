@@ -245,7 +245,7 @@
                             </div>
 
                             <!-- Enviar o formulário -->
-                            <button type="submit" class="submit-button">Enviar</button>
+                            <a href="/quero-adotar/enviado" class="submit-button">Enviar</a>
             </form>
         </div>
     </div>

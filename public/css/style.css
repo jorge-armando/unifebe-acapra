@@ -105,10 +105,12 @@ label {
     height: 48px;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     margin: 10px auto;
     display: block;
+    line-height: 48px; 
+    text-align: center;
 }
 
 .submit-button2 {

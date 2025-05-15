@@ -13,9 +13,10 @@
   <p class="par2" style="text-align: left; margin-top: 10px; margin-left: 20px;">
     Seu formulário foi entregue e logo será analisado, muito em breve retornaremos com uma resposta pelo seu e-mail ou telefone de contato!
   </p>
-  <button type="submit" class="submit-button2" style="display: block; margin: 20px auto;">
-    Voltar a lista de Pets
-  </button>
+<a href="/pets" class="submit-button2" style="display: block; margin: 20px auto; text-align: center;">
+  Voltar à lista de Pets
+</a>
+      </button>
 </div>
 
 @endsection
