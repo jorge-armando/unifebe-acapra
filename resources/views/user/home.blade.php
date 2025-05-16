@@ -7,13 +7,10 @@
 @endsection
 
 @section('content')
-  
-
   <main>
     <h1>Página institucional</h1>
     <button class="main-btn">Ver lista de pets 🐾</button>
   </main>
-
 @endsection
 
 

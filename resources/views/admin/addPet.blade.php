@@ -72,7 +72,7 @@
 
     <label>Insira aqui as fotos do pet</label>
     <div class="upload-container">
-      <img src="https://placekitten.com/100/100" alt="preview">
+      <img src="/images/difusor.png" alt="preview">
       <input type="file" />
     </div>
 

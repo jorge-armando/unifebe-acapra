@@ -51,7 +51,7 @@ class ListaHomeController extends Controller
     ],
 ];
 
-    public function mostrarTela()
+    public function execute()
     {
         $pets=$this->pets;
         return view('user.lista',compact("pets"));

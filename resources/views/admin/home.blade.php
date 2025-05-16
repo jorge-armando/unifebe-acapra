@@ -13,7 +13,7 @@
     </div>
 
     <div class="card">
-        <img src="https://placekitten.com/60/60" alt="Pet">
+        <img src="/images/difusor.png" alt="Pet">
         <div class="nome">Difusor</div>
         <div class="botoes">
             <button>Editar pet</button>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="card">
-        <img src="https://placekitten.com/60/60" alt="Pet">
+        <img src="/images/difusor.png" alt="Pet">
         <div class="nome">Difusor</div>
         <div class="botoes">
             <button>Editar pet</button>

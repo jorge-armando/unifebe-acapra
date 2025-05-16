@@ -14,8 +14,9 @@ use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\ListaHomeController;
 use App\Http\Controllers\User\AnimalHomeController;
 
-Route::get('/', [UserHomeController::class, 'mostrarTela']);
-Route::get('/pets', [ListaHomeController::class, 'mostrarTela']);
+Route::get('/', [UserHomeController::class, 'execute']);
+Route::get('/pets', [ListaHomeController::class, 'execute']);
+Route::get('/pets/{id}', [AnimalHomeController::class, 'execute']);
 Route::get('/quero-adotar', [QueroAdotarController::class, 'execute']);
 Route::get('/quero-adotar/enviado', [EnviadoController::class, 'execute']);
 
@@ -27,6 +28,3 @@ Route::get('/admin/forms', [formsController::class, 'execute']);
 Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute']);
 Route::get('/admin/cadastro', [CadastroController::class, 'execute']);
 Route::get('/admin/login', [LoginController::class, 'execute']);
-Route::get('/user/home', [UserHomeController::class, 'mostrarTela']);
-Route::get('/user/lista', [ListaHomeController::class, 'mostrarTela']);
-Route::get('/user/animal', [AnimalHomeController::class, 'mostrarTela']);

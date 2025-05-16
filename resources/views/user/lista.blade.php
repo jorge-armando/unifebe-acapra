@@ -7,10 +7,8 @@
 @endsection
 
 @section('content')
-    <h1>Bem-vindo à página inicial!</h1>
+<h2>Lista de pets</h2>
 <div class="container-pets">
-  <h2>Lista de pets</h2>
-
   <div class="filtros">
     <h3>Filtros</h3>
     <button>Resetar filtros</button>
@@ -37,7 +35,7 @@
 
     <div>
       <strong>Idade</strong><br>
-      <input type="range" name="idade" min="0" max="21">
+      @include('components.slider')
     </div>
   </div>
 
