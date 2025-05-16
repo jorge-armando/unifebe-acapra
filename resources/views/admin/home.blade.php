@@ -16,7 +16,7 @@
         <img src="/images/difusor.png" alt="Pet">
         <div class="nome">Difusor</div>
         <div class="botoes">
-            <button>Editar pet</button>
+            <a href="/admin/pets/add">Editar pet</a>
             <button>Remover Pet</button>
         </div>
     </div>
@@ -25,7 +25,7 @@
         <img src="/images/difusor.png" alt="Pet">
         <div class="nome">Difusor</div>
         <div class="botoes">
-            <button>Editar pet</button>
+            <a href="/admin/pets/add">Editar pet</a>
             <button>Remover Pet</button>
         </div>
     </div>

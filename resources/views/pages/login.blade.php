@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <form id="login-form" class="form-box" method="POST" action="/loginPost">
+    <form id="login-form" class="form-box" method="GET" action="/admin">
         <h2>Bem-vindo</h2>
 
         <div class="line text">

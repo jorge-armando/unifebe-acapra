@@ -9,7 +9,7 @@
 @section('content')
   <main>
     <h1>Página institucional</h1>
-    <button class="main-btn">Ver lista de pets 🐾</button>
+<a href="/pets" class="main-btn">Ver lista de pets 🐾</a>
   </main>
 @endsection
 

@@ -68,7 +68,8 @@ body {
     margin-top: 10px;
 }
 
-.botoes button {
+.botoes button,
+.botoes a {
     background-color: #5c518c;
     color: white;
     border: none;

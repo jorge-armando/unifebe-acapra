@@ -3,13 +3,13 @@
 @section('title', 'Página Inicial')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/user/listahome.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/user/listahome.css') }}">
 @endsection
 
 @section('content')
-<h2>Lista de pets</h2>
-<div class="container-pets">
-  <div class="filtros">
+  <h2>Lista de pets</h2>
+  <div class="container-pets">
+    <div class="filtros">
     <h3>Filtros</h3>
     <button>Resetar filtros</button>
 
@@ -37,27 +37,27 @@
       <strong>Idade</strong><br>
       @include('components.slider')
     </div>
-  </div>
+    </div>
 
-  <div class="lista-pets">
+    <div class="lista-pets">
     @foreach ($pets as $pet)
-      <div class="pet-card">
-        <img src="/images/difusor.png" alt="Difusor" class="rounded-xl border border-gray-300 shadow w-[300px] h-auto">
-        <div class="info">
-          <div class="tags">
-            <span class="tag">Adotado</span>
-            <span>{{ $pet["sexo"] }} • {{ $pet["idade"] }} anos • Porte {{ $pet["porte"] }}</span>
-          </div>
-          <h3>{{ $pet["nome"] }}</h3>
-          <p>{{ $pet["descricao"] }}</p>
-          <div class="extras">
-            <span class="badge">Vacinado</span>
-            <span class="badge">Castrado</span>
-          </div>
-          <a href="#" class="btn">Saiba mais 🐾</a>
-        </div>
+    <div class="pet-card">
+      <img src="/images/difusor.png" alt="Difusor" class="rounded-xl border border-gray-300 shadow w-[300px] h-auto">
+      <div class="info">
+      <div class="tags">
+      <span class="tag">Adotado</span>
+      <span>{{ $pet["sexo"] }} • {{ $pet["idade"] }} anos • Porte {{ $pet["porte"] }}</span>
       </div>
+      <h3>{{ $pet["nome"] }}</h3>
+      <p>{{ $pet["descricao"] }}</p>
+      <div class="extras">
+      <span class="badge">Vacinado</span>
+      <span class="badge">Castrado</span>
+      </div>
+      <a href="/pets/1" class="btn">Saiba mais 🐾</a>
+      </div>
+    </div>
     @endforeach
+    </div>
   </div>
-</div>
 @endsection
