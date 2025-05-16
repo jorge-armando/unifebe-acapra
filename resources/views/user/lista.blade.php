@@ -44,7 +44,7 @@
   <div class="lista-pets">
     @foreach ($pets as $pet)
       <div class="pet-card">
-        <img src="{{ $pet['imagem'] }}" alt="Foto de {{ $pet['nome'] }}">
+        <img src="/images/difusor.png" alt="Difusor" class="rounded-xl border border-gray-300 shadow w-[300px] h-auto">
         <div class="info">
           <div class="tags">
             <span class="tag">Adotado</span>

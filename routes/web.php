@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AddPetController;
 use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\ListaHomeController;
+use App\Http\Controllers\User\AnimalHomeController;
 
 Route::get('/', [UserHomeController::class, 'mostrarTela']);
 Route::get('/pets', [ListaHomeController::class, 'mostrarTela']);
@@ -26,3 +27,6 @@ Route::get('/admin/forms', [formsController::class, 'execute']);
 Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute']);
 Route::get('/admin/cadastro', [CadastroController::class, 'execute']);
 Route::get('/admin/login', [LoginController::class, 'execute']);
+Route::get('/user/home', [UserHomeController::class, 'mostrarTela']);
+Route::get('/user/lista', [ListaHomeController::class, 'mostrarTela']);
+Route::get('/user/animal', [AnimalHomeController::class, 'mostrarTela']);
