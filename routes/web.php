@@ -13,11 +13,15 @@ use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\ListaHomeController;
 use App\Http\Controllers\User\AnimalHomeController;
+use App\Http\Controllers\AdocaoController;
 
 Route::get('/', [UserHomeController::class, 'execute']);
 Route::get('/pets', [ListaHomeController::class, 'execute']);
 Route::get('/pets/{id}', [AnimalHomeController::class, 'execute']);
 Route::get('/quero-adotar', [QueroAdotarController::class, 'execute']);
+
+Route::post('/quero-adotar', [AdocaoController::class, 'store'])->name('adocao.store');
+
 Route::get('/quero-adotar/enviado', [EnviadoController::class, 'execute']);
 
 Route::get('/admin', [AdminHomeController::class, 'execute']);
@@ -26,5 +30,6 @@ Route::get('/admin/pets/add', [AddPetController::class, 'execute']);
 Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute']);
 Route::get('/admin/forms', [formsController::class, 'execute']);
 Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute']);
+Route::post('/admin/forms/{id}/status', [AnaliseFormController::class, 'updateStatus'])->name('adocao.updateStatus');
 Route::get('/admin/cadastro', [CadastroController::class, 'execute']);
 Route::get('/admin/login', [LoginController::class, 'execute']);

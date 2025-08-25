@@ -9,6 +9,10 @@ class Adocao extends Model
 {
     use HasFactory;
 
+    // Nome da tabela (opcional, só se não seguir padrão Laravel)
+    protected $table = 'adocoes';
+
+    // Campos que podem ser preenchidos em massa (fillable)
     protected $fillable = [
         'nome_completo',
         'data_nasc',
@@ -39,5 +43,6 @@ class Adocao extends Model
         'condicoes_fisicas',
         'castracao_vacinacao',
         'adocao_colaborativa',
+        'status', 
     ];
 }

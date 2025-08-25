@@ -8,218 +8,142 @@
 @endsection
 
 @section('content')
-    <!-- Título principal da página -->
     <h1 id="queroAdotar" class="title1">Análise de Formulário</h1>
 
-    <!-- Contêiner principal da página -->
     <div class="page-container">
-
-        <!-- Contêiner do formulário -->
         <div class="form-container">
 
-            <!-- Início do formulário -->
-            <form action="" method="POST">
+            <!-- Mensagem de sucesso -->
+            @if(session('success'))
+                <div class="alert-success">{{ session('success') }}</div>
+            @endif
 
-                <!-- Seção: Informações Pessoais -->
+            <!-- Exibindo dados do formulário -->
+            <form action="{{ route('adocao.updateStatus', $adocao->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+
+                <!-- Informações Pessoais -->
                 <div class="info-container">
                     <img id="iconUser" src="{{ asset('images/iconUser.png') }}" alt="Imagem pessoa">
                     <span class="title3">Informações Pessoais</span>
                 </div>
 
-                <!-- Campos de entrada de dados pessoais -->
-                <label for="nome_completo" class="par1">Nome completo:</label><br>
-                <input type="text" value="Teste da silva" class="input-field" >
+                <label class="par1">Nome completo:</label><br>
+                <input type="text" value="{{ $adocao->nome_completo }}" class="input-field" readonly>
 
-                <label for="data_nasc" class="par1">Data de nascimento:</label><br>
-                <input type="date" id="data_nasc" class="input-field">
+                <label class="par1">Data de nascimento:</label><br>
+                <input type="date" value="{{ $adocao->data_nasc }}" class="input-field" readonly>
 
-                <label for="email" class="par1">E-mail para contato:</label><br>
-                <input type="email" id="email" value="teste@gm.com" class="input-field">
+                <label class="par1">E-mail para contato:</label><br>
+                <input type="email" value="{{ $adocao->email }}" class="input-field" readonly>
 
-                <label for="renda_mensal" class="par1">Qual sua renda mensal?</label><br>
-                <input type="text" id="renda_mensal" value="1900,00" class="input-field">
+                <label class="par1">Renda mensal:</label><br>
+                <input type="text" value="{{ $adocao->renda_mensal }}" class="input-field" readonly>
 
-                <label for="casa_ou_apt" class="par1">Você mora em casa ou apartamento?</label><br>
-                <input type="text" id="casa_ou_apt" value="casa" class="input-field">
+                <label class="par1">Você mora em casa ou apartamento?</label><br>
+                <input type="text" value="{{ $adocao->casa_ou_apt }}" class="input-field" readonly>
 
-                <!-- Tipo de propriedade -->
-                <div class="radio-container">
-                    <label>
-                        <input type="radio" class="radio-btn" name="propriedade" value="proprio"> Próprio
-                    </label>
-                    <label>
-                        <input type="radio" class="radio-btn" name="propriedade" value="alugado"> Alugado
-                    </label>
-                </div>
-                <br>
+                <label class="par1">Propriedade:</label><br>
+                <input type="text" value="{{ $adocao->propriedade }}" class="input-field" readonly>
                 <hr>
 
-                <!-- Seção: Endereço -->
+                <!-- Endereço -->
                 <div class="info-container">
                     <img id="iconUser" src="{{ asset('images/iconLocation.png') }}" alt="Imagem localidade">
                     <span class="title3">Endereço completo</span>
                 </div>
 
-                <!-- Campos de endereço -->
-                <label for="cep" class="par1">CEP:</label><br>
-                <input type="text" id="cep" value="88295-000" class="input-field">
+                <label class="par1">CEP:</label><br>
+                <input type="text" value="{{ $adocao->cep }}" class="input-field" readonly>
 
-                <label for="estado" class="par1">Estado:</label><br>
-                <select id="estado" name="estado" class="input-field">
-                    <option value="">Selecione</option>
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                </select>
+                <label class="par1">Estado:</label><br>
+                <input type="text" value="{{ $adocao->estado }}" class="input-field" readonly>
 
-                <label for="cidade" class="par1">Cidade:</label><br>
-                <input type="text" id="cidade" value="Botuverá" class="input-field">
+                <label class="par1">Cidade:</label><br>
+                <input type="text" value="{{ $adocao->cidade }}" class="input-field" readonly>
 
-                <label for="bairro" class="par1">Bairro:</label><br>
-                <input type="text" id="bairro" value="Pedras Grandes" class="input-field">
+                <label class="par1">Bairro:</label><br>
+                <input type="text" value="{{ $adocao->bairro }}" class="input-field" readonly>
 
-                <label for="rua" class="par1">Rua:</label><br>
-                <input type="text" id="rua" value="PG03" class="input-field">
+                <label class="par1">Rua:</label><br>
+                <input type="text" value="{{ $adocao->rua }}" class="input-field" readonly>
 
-                <label for="numero" class="par1">Número:</label><br>
-                <input type="text" id="numero" value="67" class="input-field">
+                <label class="par1">Número:</label><br>
+                <input type="text" value="{{ $adocao->numero }}" class="input-field" readonly>
 
-                <label for="ponto_ref" class="par1">Ponto de referência:</label><br>
-                <input type="text" id="ponto_ref" value="abc" class="input-field">
-                <br>
-                <hr>
+                <label class="par1">Referência:</label><br>
+                <input type="text" value="{{ $adocao->ponto_ref }}" class="input-field" readonly>
 
-                <!-- Seção: Informações sobre o animal -->
+
+                <!-- Informações sobre o animal -->
                 <div class="info-container">
-                    <img id="iconUser" src="{{ asset('images/iconAnm.png') }}" alt="Imagem localidade">
+                    <img id="iconUser" src="{{ asset('images/iconAnm.png') }}" alt="Imagem animal">
                     <span class="title3">Sobre seu novo amigo!</span>
                 </div>
 
-                <!-- Escolha do tipo de animal -->
-                <label class="par1">Qual animal você quer adotar?</label><br><br>
-                <label>
-                    <input type="radio" class="radio-btn" name="cachorro_ou_gato" value="cachorro"> Cachorro
-                </label>
-                <label>
-                    <input type="radio" class="radio-btn" name="cachorro_ou_gato" value="gato"> Gato
-                </label><br><br>
+                <label class="par1">Tipo de animal:</label><br>
+                <input type="text" value="{{ $adocao->cachorro_ou_gato }}" class="input-field" readonly>
 
-                <label for="nome_animal" class="par1">Qual o nome do animal você tem interesse em adotar:</label><br>
-                <input type="text" id="nome_animal" value="Difusor" class="input-field">
+                <label class="par1">Nome do animal:</label><br>
+                <input type="text" value="{{ $adocao->nome_animal }}" class="input-field" readonly>
 
-                <label for="outros_nimais" class="par1">Você tem outros animais? Se sim, quantos e quais?</label><br>
-                <input type="text" id="outros_nimais" value="Não" class="input-field">
+                <label class="par1">Outros animais:</label><br>
+                <input type="text" value="{{ $adocao->outros_animais }}" class="input-field" readonly>
 
-                <label for="castrados_e_vacinados" class="par1">São castrados e vacinados?</label><br>
-                <input type="text" id="castrados_e_vacinados" value="Sim" class="input-field">
+                <label class="par1">Castrados e vacinados:</label><br>
+                <input type="text" value="{{ $adocao->castrados_e_vacinados }}" class="input-field" readonly>
 
-                <!-- Perguntas específicas para cachorro -->
-                <label for="espaco_adequado" class="par1">A sua casa/apto possui um espaço adequado e cercado?</label><br>
-                <input type="text" id="espaco_adequado" value="Sim" class="input-field">
+                <label class="par1">Espaço adequado:</label><br>
+                <input type="text" value="{{ $adocao->espaco_adequado }}" class="input-field" readonly>
 
-                <label for="acesso_rua" class="par1">O animal terá acesso à rua?</label><br>
-                <input type="text" id="acesso_rua" value="Não" class="input-field">
+                <label class="par1">Acesso à rua:</label><br>
+                <input type="text" value="{{ $adocao->acesso_rua }}" class="input-field" readonly>
 
-                <label for="qual_local" class="par1">Qual o local em que o animal irá ficar?</label><br>
-                <input type="text" id="qual_local" value="Jardim" class="input-field">
+                <label class="par1">Local onde ficará:</label><br>
+                <input type="text" value="{{ $adocao->qual_local }}" class="input-field" readonly>
 
-                <!-- Perguntas específicas para gato -->
-                <label for="tem_telas" class="par1">A sua residência tem telas?</label><br>
-                <input type="text" id="tem_telas" value="Sim" class="input-field">
+                <label class="par1">Residência com telas:</label><br>
+                <input type="text" value="{{ $adocao->tem_telas }}" class="input-field" readonly>
 
-                <label for="acesso_rua" class="par1">Você deixaria o gato ter acesso à rua? Dar "voltinhas"?</label><br>
-                <input type="text" id="acesso_rua" value="Não,apenas no jardim" class="input-field">
-                <br>
+                <label class="par1">Gato acesso rua:</label><br>
+                <input type="text" value="{{ $adocao->gato_acesso_rua }}" class="input-field" readonly>
                 <hr>
 
-                <!-- Seção: Envio de documentação -->
+                <!-- Documentos -->
                 <div class="info-container">
                     <img id="iconUser" src="{{ asset('images/iconDoc.png') }}" alt="Imagem documentação">
-                    <span class="title3">Envio de documentação</span>
+                    <span class="title3">Documentação</span>
                 </div>
 
-                <label for="uploadFoto" class="par1bold">Carteira de identidade</label><br>
-                <input type="file" id="uploadFoto" name="carteira_identidade" class="input-file" accept="image/*"><br><br>
-
-                <label for="uploadFoto" class="par1bold">Foto do local onde o animal irá ficar (terreno, casa, canil...)</label><br>
-                <input type="file" id="uploadFoto" name="foto_local" class="input-file" accept="image/*"><br><br>
-
-                <label for="uploadFoto" class="par1bold">Se tiver outros animais, foto dos mesmos e das suas carteiras de vacinação</label><br>
-                <input type="file" id="uploadFoto" name="carteira_vacinacao_animais" class="input-file" accept="image/*"><br><br>
-
-                <!-- Imagem apenas para gato -->
-                <label for="uploadFoto" class="par1bold">Foto das telas</label><br>
-                <input type="file" id="uploadFoto" name="foto_telas" class="input-file" accept="image/*">
-
-                <br>
+                <p>Carteira de identidade: <a href="{{ asset('storage/' . $adocao->doc_identidade) }}" target="_blank">Ver
+                        arquivo</a></p>
+                <p>Foto do local: <a href="{{ asset('storage/' . $adocao->foto_local) }}" target="_blank">Ver arquivo</a>
+                </p>
+                <p>Foto de outros animais/vacinação: <a href="{{ asset('storage/' . $adocao->foto_outros_animais) }}"
+                        target="_blank">Ver arquivo</a></p>
+                <p>Foto das telas: <a href="{{ asset('storage/' . $adocao->foto_telas) }}" target="_blank">Ver arquivo</a>
+                </p>
                 <hr>
 
-                <!-- Seção: Termos e condições -->
+                <!-- Termos e condições -->
                 <div class="info-container">
-                    <img id="iconUser" src="{{ asset('images/iconTerms.png') }}" alt="Imagem termos e condições">
+                    <img id="iconUser" src="{{ asset('images/iconTerms.png') }}" alt="Imagem termos">
                     <span class="title3">Termos e condições</span>
                 </div>
 
-                <!-- Compromissos com o bem-estar do animal -->
-                <label class="par1">Você tem condições físicas, mentais e financeiras de manter um animal? Uma boa ração? Visitas ao veterinário? Castração? Passeios?</label><br><br>
-                <div class="radio-container">
-                    <label>
-                        <input type="radio" class="radio-btn" name="condicoes_fisicas" value="sim"> Sim, eu tenho
-                    </label><br><br>
-                    <label>
-                        <input type="radio" class="radio-btn" name="condicoes_fisicas" value="nao"> Não, não tenho
-                    </label><br><br><br>
-                </div>
+                <label class="par1">Condições físicas:</label><br>
+                <input type="text" value="{{ $adocao->condicoes_fisicas }}" class="input-field" readonly>
 
-                <!-- Concordância com castração -->
-                <label class="par1">A castração e vacinação do animal é OBRIGATÓRIA, você concorda com isso?</label><br><br>
-                <div class="radio-container">
-                    <label>
-                        <input type="radio" class="radio-btn" name="castracao_vacinacao" value="sim"> Sim, concordo
-                    </label><br><br>
-                    <label>
-                        <input type="radio" class="radio-btn" name="castracao_vacinacao" value="nao"> Não, discordo
-                    </label><br><br><br>
-                </div>
+                <label class="par1">Castração e vacinação:</label><br>
+                <input type="text" value="{{ $adocao->castracao_vacinacao }}" class="input-field" readonly>
 
-                <!-- Contribuição financeira -->
-                <label class="par1">Existe uma taxa de adoção colaborativa de R$30,00. Você concorda em contribuir?</label><br><br>
-                <div class="radio-container">
-                    <label>
-                        <input type="radio" class="radio-btn" name="adocao_colaborativa" value="sim"> Sim, concordo
-                    </label><br><br>
-                    <label>
-                        <input type="radio" class="radio-btn" name="adocao_colaborativa" value="nao"> Não, discordo
-                    </label><br><br><br>
-                </div>
+                <label class="par1">Taxa de adoção colaborativa:</label><br>
+                <input type="text" value="{{ $adocao->adocao_colaborativa }}" class="input-field" readonly>
 
+                <!-- Botões de status -->
                 <div class="btn-group">
-                    <button class="submit-button">Aprovar</button>
-                    <button class="submit-button">Reprovar</button>
+                    <button type="submit" name="status" value="aprovado" class="submit-button">Aprovar</button>
+                    <button type="submit" name="status" value="reprovado" class="submit-button">Reprovar</button>
                 </div>
             </form>
         </div>
