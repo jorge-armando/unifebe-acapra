@@ -36,8 +36,7 @@ Route::get('/admin/logout', [LogoutController::class, 'execute'])->middleware(Ad
 Route::get('/admin/cadastro', [CadastroController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/cadastroPost', [CadastroController::class, 'post'])->middleware(AdminAuth::class);
 
-Route::get('/admin/pets', [IndexController::class, 'execute'])->middleware(AdminAuth::class);
-
+Route::get('/admin/pets', [IndexController::class, 'execute'])->name('admin.pets.index')->middleware(AdminAuth::class);
 Route::get('/admin/pets/add', [AddPetPostController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/pets/add', [AddPetPostController::class, 'store'])->name('admin.pets.store')->middleware(AdminAuth::class);
 Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute'])->middleware(AdminAuth::class);

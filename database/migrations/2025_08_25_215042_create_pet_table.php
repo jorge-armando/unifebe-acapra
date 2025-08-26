@@ -17,11 +17,10 @@ return new class extends Migration
             $table->string('sexo');
             $table->integer('idade');
             $table->string('porte');
-            $table->json('detalhes')->nullable(); // array de detalhes
+            $table->json('detalhes')->nullable(); 
             $table->longText('historia')->nullable();
             $table->longText('complicacoes')->nullable();
             $table->longText('descricao')->nullable();
-            $table->string('foto')->nullable(); // foto principal
             $table->timestamps();
         });
     }
