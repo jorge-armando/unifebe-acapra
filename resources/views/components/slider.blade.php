@@ -1,7 +1,6 @@
 <style>
     body {
         font-family: sans-serif;
-        padding: 20px;
     }
     .slider-container {
         max-width: 400px;
