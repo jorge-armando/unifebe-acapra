@@ -23,10 +23,6 @@
                 <input type="password" class="input-text" name="password" id="input-password"/>
             </div>
         </div>
-        <div class="line checkbox">
-            <input type="checkbox" name="remember_password" id="remember_password"/>
-            <label for="remember_password">Lembrar minha senha</label>
-        </div>
         <div class="actions">
             <button type="submit">Entrar</button>
         </div>

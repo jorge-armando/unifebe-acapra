@@ -9,7 +9,7 @@
             <a href="/admin/pets/add">Adicionar Pet</a>
             
             <a href="/admin/logout" class="admin-user">
-                Olá, Jorge
+                Olá, {{ session('user_name') }}
                 <img src="{{ asset('images/sair.png') }}" alt="Sair" style="height: 24px;">
             </a>
         </nav>
