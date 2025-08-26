@@ -25,6 +25,7 @@
     </head>
     <body>
         @include('components.headerAdm')
+        @include('components.errors')
         <main>
             @yield('content')
         </main>

@@ -12,15 +12,15 @@
         <h2>Cadastro</h2>
 
         <div class="line text">
-            <label for="input-fullname">Nome completo</label>
+            <label for="input-name">Nome completo</label>
             <div>
-                <input type="fullname" class="input-text" name="fullname" id="input-fullname"/>
+                <input type="name" class="input-text" name="name" id="input-name" value="{{ old('name') }}"/>
             </div>
         </div>
         <div class="line text">
             <label for="input-email">E-mail</label>
             <div>
-                <input type="email" class="input-text" name="email" id="input-email"/>
+                <input type="email" class="input-text" name="email" id="input-email" value="{{ old('email') }}"/>
             </div>
         </div>
         <div class="line text">

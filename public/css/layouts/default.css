@@ -15,3 +15,17 @@ main {
 footer {
     flex: 0 0 auto;
 }
+
+.alert {
+    padding: 16px 20px;
+    font-weight: 600;
+}
+
+.alert-success {
+    background-color: #CCFFCC;
+    color: #0F4D0F;
+}
+.alert-error {
+    background-color: #ffcdd2;
+    color: #f44336;
+}
