@@ -44,3 +44,8 @@ Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute'])->middl
 Route::get('/admin/forms', [formsController::class, 'execute'])->middleware(AdminAuth::class);
 Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/forms/{id}/status', [AnaliseFormController::class, 'updateStatus'])->name('adocao.updateStatus');
+
+
+Route::fallback(function () {
+    return view('user.erro404');
+});
