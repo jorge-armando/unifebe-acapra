@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\LoginPostController;
 use App\Http\Controllers\Admin\LogoutController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\AddPetController;
+use App\Http\Controllers\Admin\AddPetPostController;
 use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\User\EnviadoController;
 use App\Http\Controllers\User\QueroAdotarController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\ListaHomeController;
 use App\Http\Controllers\User\AnimalHomeController;
 use App\Http\Controllers\AdocaoController;
+
 
 use App\Http\Middleware\AdminAuth;
 
@@ -41,3 +43,6 @@ Route::get('/admin/forms', [formsController::class, 'execute'])->middleware(Admi
 Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/forms/{id}/status', [AnaliseFormController::class, 'updateStatus'])->name('adocao.updateStatus');
 Route::get('/admin/cadastro', [CadastroController::class, 'execute'])->middleware(AdminAuth::class);
+
+Route::get('/admin/pets/add', [AddPetPostController::class, 'execute'])->middleware(AdminAuth::class);
+Route::post('/admin/pets/add', [AddPetPostController::class, 'store'])->name('admin.pets.store')->middleware(AdminAuth::class);

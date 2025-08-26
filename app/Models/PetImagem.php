@@ -9,14 +9,15 @@ class PetImagem extends Model
 {
     use HasFactory;
 
+    protected $table = 'pet_imagens'; // força o nome correto da tabela
+
     protected $fillable = [
-        'id_pet',
-        'tipo',
-        'path',
+        'pet_id',
+        'caminho',
     ];
 
     public function pet()
     {
-        return $this->belongsTo(Pet::class, 'id_pet');
+        return $this->belongsTo(Pet::class);
     }
 }

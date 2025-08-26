@@ -8,23 +8,26 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('pet', function (Blueprint $table) {
-            $table->id(); // id autoincrement
-            $table->integer('tipo');
-            $table->string('raca');
-            $table->integer('sexo');
+        Schema::create('pets', function (Blueprint $table) {
+            $table->id();
+            $table->string('tipo');
+            $table->boolean('mostrar')->default(1);
+            $table->string('nome');
+            $table->string('raca')->nullable();
+            $table->string('sexo');
             $table->integer('idade');
             $table->string('porte');
-            $table->longText('detalhes')->nullable();
+            $table->json('detalhes')->nullable(); // array de detalhes
             $table->longText('historia')->nullable();
-            $table->longText('complicacao')->nullable();
+            $table->longText('complicacoes')->nullable();
             $table->longText('descricao')->nullable();
-            $table->timestamps(); // created_at e updated_at
+            $table->string('foto')->nullable(); // foto principal
+            $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('pet');
+        Schema::dropIfExists('pets');
     }
 };
