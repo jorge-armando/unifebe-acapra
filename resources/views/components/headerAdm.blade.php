@@ -8,7 +8,7 @@
             <a href="/admin/cadastro">Cadastrar Admin</a>
             <a href="/admin/pets/add">Adicionar Pet</a>
             
-            <a href="/" class="admin-user">
+            <a href="/admin/logout" class="admin-user">
                 Olá, Jorge
                 <img src="{{ asset('images/sair.png') }}" alt="Sair" style="height: 24px;">
             </a>

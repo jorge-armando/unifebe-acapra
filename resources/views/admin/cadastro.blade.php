@@ -7,7 +7,8 @@
 @endsection
 
 @section('content')
-    <form id="login-form" class="form-box" method="POST" action="/cadastroPost">
+    <form id="login-form" class="form-box" method="POST" action="/admin/cadastroPost">
+        @csrf
         <h2>Cadastro</h2>
 
         <div class="line text">
