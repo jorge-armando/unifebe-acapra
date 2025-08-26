@@ -3,11 +3,11 @@
 @section('title', 'Adicionar Pet')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/admin/addPet.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/addPet.css') }}">
 @endsection
 
 @section('content')
-    <div class="form-container">
+  <div class="form-container">
     <h1>Difusor</h1>
 
     <label for="tipo">Tipo</label>

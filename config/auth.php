@@ -37,8 +37,8 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+            'driver' => 'eloquent',
+            'provider' => App\Models\User::class,
         ],
     ],
 

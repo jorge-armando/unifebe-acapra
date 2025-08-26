@@ -1,19 +1,22 @@
 <?php
 
-use App\Http\Controllers\Admin\AnaliseFormController;
-use App\Http\Controllers\User\EnviadoController;
-use App\Http\Controllers\User\QueroAdotarController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CadastroController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\AnaliseFormController;
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\LoginPostController;
+use App\Http\Controllers\Admin\LogoutController;
+use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\AddPetController;
 use App\Http\Controllers\Admin\FormsController;
+use App\Http\Controllers\User\EnviadoController;
+use App\Http\Controllers\User\QueroAdotarController;
+use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\ListaHomeController;
 use App\Http\Controllers\User\AnimalHomeController;
 use App\Http\Controllers\AdocaoController;
+
+use App\Http\Middleware\AdminAuth;
 
 Route::get('/', [UserHomeController::class, 'execute']);
 Route::get('/pets', [ListaHomeController::class, 'execute']);
@@ -24,12 +27,17 @@ Route::post('/quero-adotar', [AdocaoController::class, 'store'])->name('adocao.s
 
 Route::get('/quero-adotar/enviado', [EnviadoController::class, 'execute']);
 
-Route::get('/admin', [AdminHomeController::class, 'execute']);
-Route::get('/admin/pets', [AdminHomeController::class, 'execute']);
-Route::get('/admin/pets/add', [AddPetController::class, 'execute']);
-Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute']);
-Route::get('/admin/forms', [formsController::class, 'execute']);
-Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute']);
-Route::post('/admin/forms/{id}/status', [AnaliseFormController::class, 'updateStatus'])->name('adocao.updateStatus');
-Route::get('/admin/cadastro', [CadastroController::class, 'execute']);
+// Admin routes
+Route::get('/admin', [IndexController::class, 'execute'])->middleware(AdminAuth::class);
 Route::get('/admin/login', [LoginController::class, 'execute']);
+Route::post('/admin/loginPost', [LoginPostController::class, 'execute']);
+Route::get('/admin/logout', [LogoutController::class, 'execute'])->middleware(AdminAuth::class);
+
+Route::get('/admin/pets', [IndexController::class, 'execute'])->middleware(AdminAuth::class);
+Route::get('/admin/pets/add', [AddPetController::class, 'execute'])->middleware(AdminAuth::class);
+Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute'])->middleware(AdminAuth::class);
+
+Route::get('/admin/forms', [formsController::class, 'execute'])->middleware(AdminAuth::class);
+Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute'])->middleware(AdminAuth::class);
+Route::post('/admin/forms/{id}/status', [AnaliseFormController::class, 'updateStatus'])->name('adocao.updateStatus');
+Route::get('/admin/cadastro', [CadastroController::class, 'execute'])->middleware(AdminAuth::class);
