@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Pet;
 
 class AddPetController extends Controller
 {
-    public function execute()
+    public function execute($id)
     {
-        return view('admin.addPet');
+        $pet = Pet::with('imagens')->findOrFail($id);
+        return view('admin.editPet', compact('pet'));
     }
 }

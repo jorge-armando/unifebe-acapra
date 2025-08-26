@@ -39,10 +39,13 @@ Route::post('/admin/cadastroPost', [CadastroController::class, 'post'])->middlew
 Route::get('/admin/pets', [IndexController::class, 'execute'])->name('admin.pets.index')->middleware(AdminAuth::class);
 Route::get('/admin/pets/add', [AddPetPostController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/pets/add', [AddPetPostController::class, 'store'])->name('admin.pets.store')->middleware(AdminAuth::class);
-Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute'])->middleware(AdminAuth::class);
+Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute'])->name('admin.pets.edit')->middleware(AdminAuth::class);
 Route::get('/admin/forms', [formsController::class, 'execute'])->middleware(AdminAuth::class);
 Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/forms/{id}/status', [AnaliseFormController::class, 'updateStatus'])->name('adocao.updateStatus');
+Route::delete('/admin/pets/{id}', [AddPetPostController::class, 'destroy'])->name('admin.pets.destroy')->middleware(AdminAuth::class);
+Route::post('/admin/pets/edit/{id}', [AddPetPostController::class, 'update'])->name('admin.pets.update')->middleware(AdminAuth::class);
+
 
 
 Route::fallback(function () {
