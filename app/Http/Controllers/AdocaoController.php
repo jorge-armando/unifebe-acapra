@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Adocao;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Pet;
 
 class AdocaoController extends Controller
 {
@@ -32,28 +33,41 @@ class AdocaoController extends Controller
 
         $data = $request->all();
 
-        // Upload de arquivos
-        if($request->hasFile('doc_identidade')){
+        if ($request->hasFile('doc_identidade')) {
             $data['doc_identidade'] = $request->file('doc_identidade')->store('adocoes_docs', 'public');
         }
 
-        if($request->hasFile('foto_local')){
+        if ($request->hasFile('foto_local')) {
             $data['foto_local'] = $request->file('foto_local')->store('adocoes_docs', 'public');
         }
 
-        if($request->hasFile('foto_outros_animais')){
+        if ($request->hasFile('foto_outros_animais')) {
             $data['foto_outros_animais'] = $request->file('foto_outros_animais')->store('adocoes_docs', 'public');
         }
 
-        if($request->hasFile('foto_telas')){
+        if ($request->hasFile('foto_telas')) {
             $data['foto_telas'] = $request->file('foto_telas')->store('adocoes_docs', 'public');
         }
 
-        // Criar registro no banco
         Adocao::create($data);
 
-        // Redireciona para página de sucesso
         return redirect('/quero-adotar/enviado')->with('success', 'Formulário enviado com sucesso!');
     }
-    
+    public function create($id = null)
+    {
+        $pet = null;
+
+        if ($id) {
+            $pet = Pet::find($id);
+            if (!$pet) {
+                return redirect('/pets')->with('error', 'Pet não encontrado.');
+            }
+        }
+
+        return view('user.quero_adotar', compact('pet'));
+    }
+
+
+
+
 }

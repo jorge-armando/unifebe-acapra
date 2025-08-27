@@ -15,27 +15,22 @@ use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\ListaHomeController;
 use App\Http\Controllers\User\AnimalHomeController;
 use App\Http\Controllers\AdocaoController;
-
-
+use App\Http\Controllers\PetController;
 use App\Http\Middleware\AdminAuth;
 
 Route::get('/', [UserHomeController::class, 'execute']);
 Route::get('/pets', [ListaHomeController::class, 'execute']);
-Route::get('/pets/{id}', [AnimalHomeController::class, 'execute']);
-Route::get('/quero-adotar', [QueroAdotarController::class, 'execute']);
-
+Route::get('/pets/{id}', [PetController::class, 'show'])->name('pets.show');
+Route::get('/quero-adotar/{id}', [AdocaoController::class, 'create'])->name('quero_adotar');
 Route::post('/quero-adotar', [AdocaoController::class, 'store'])->name('adocao.store');
-
+Route::get('/quero-adotar/{id?}', [AdocaoController::class, 'create'])->name('quero_adotar');
 Route::get('/quero-adotar/enviado', [EnviadoController::class, 'execute']);
-
-// Admin routes
 Route::get('/admin', [IndexController::class, 'execute'])->middleware(AdminAuth::class);
 Route::get('/admin/login', [LoginController::class, 'execute']);
 Route::post('/admin/loginPost', [LoginController::class, 'post']);
 Route::get('/admin/logout', [LogoutController::class, 'execute'])->middleware(AdminAuth::class);
 Route::get('/admin/cadastro', [CadastroController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/cadastroPost', [CadastroController::class, 'post'])->middleware(AdminAuth::class);
-
 Route::get('/admin/pets', [IndexController::class, 'execute'])->name('admin.pets.index')->middleware(AdminAuth::class);
 Route::get('/admin/pets/add', [AddPetPostController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/pets/add', [AddPetPostController::class, 'store'])->name('admin.pets.store')->middleware(AdminAuth::class);
