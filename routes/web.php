@@ -18,6 +18,9 @@ use App\Http\Controllers\AdocaoController;
 use App\Http\Controllers\PetController;
 use App\Http\Middleware\AdminAuth;
 
+
+
+
 Route::get('/', [UserHomeController::class, 'execute']);
 Route::get('/pets', [ListaHomeController::class, 'execute']);
 Route::get('/pets/{id}', [PetController::class, 'show'])->name('pets.show');
@@ -54,7 +57,10 @@ Route::middleware([AdminAuth::class])->group(function () {
 });
 
 Route::fallback(function () {
-    return view('pages.erro404');
+    return view('user.erro404');
 });
 
+Route::get('/pets', [ListaHomeController::class, 'execute'])->name('pets.index');
 
+
+Route::get('/pets', [ListaHomeController::class, 'execute']);

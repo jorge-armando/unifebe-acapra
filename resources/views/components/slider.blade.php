@@ -1,42 +1,56 @@
+@php
+    $idadeMin = (int) request()->get('idade_min', 0);
+    $idadeMax = (int) request()->get('idade_max', 30);
+@endphp
+
 <style>
-    body {
-        font-family: sans-serif;
-    }
     .slider-container {
-        max-width: 400px;
+        max-width: 320px;
     }
     .values {
         font-size: 14px;
-    }
-    .current-value {
-        text-align: center;
-        margin-left: 10px;
-        font-weight: bold;
-        font-size: 16px;
+        margin-bottom: 6px;
     }
     .input {
         display: flex;
         align-items: center;
+        gap: 10px;
+    }
+    .current-value {
+        min-width: 28px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
     }
 </style>
 
 <div class="slider-container">
     <div class="values">
-        <span><span id="min-value">0</span></span> - <span><span id="max-value">30</span></span>
+        <span id="min-value">{{ $idadeMin }}</span> - <span id="max-value">{{ $idadeMax }}</span> anos
     </div>
 
+    {{-- Esses inputs que vão no GET --}}
+    <input type="hidden" name="idade_min" id="idade_min" value="{{ $idadeMin }}">
+    <input type="hidden" name="idade_max" id="idade_max" value="{{ $idadeMax }}">
+
     <div class="input">
-        <input type="range" id="slider" min="0" max="30" value="15" step="1" />
-        <div class="current-value"><span id="current-value">15</span></div>
+        {{-- Slider controla a idade máxima --}}
+        <input type="range" id="slider" min="0" max="30" value="{{ $idadeMax }}" step="1" />
+        <div class="current-value"><span id="current-value">{{ $idadeMax }}</span></div>
     </div>
 </div>
 
 <script>
-    const slider = document.getElementById('slider');
-    const currentValue = document.getElementById('current-value');
+    (function () {
+        const slider = document.getElementById('slider');
+        const currentValue = document.getElementById('current-value');
+        const maxValue = document.getElementById('max-value');
+        const idadeMaxInput = document.getElementById('idade_max');
 
-    // Atualiza dinamicamente o valor atual
-    slider.addEventListener('input', () => {
-    currentValue.textContent = slider.value;
-    });
+        slider.addEventListener('input', () => {
+            currentValue.textContent = slider.value;
+            maxValue.textContent = slider.value;
+            idadeMaxInput.value = slider.value;
+        });
+    })();
 </script>
