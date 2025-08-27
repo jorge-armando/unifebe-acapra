@@ -21,6 +21,6 @@ class IndexController extends Controller
 
         $pets = $query->orderBy('created_at', 'desc')->get();
 
-        return view('admin.index', compact('pets'));
+        return view('pages.admin.index', compact('pets'));
     }
 }

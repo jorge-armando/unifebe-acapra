@@ -25,7 +25,7 @@
     </head>
     <body>
         @include('components.headerAdm')
-        @include('components.errors')
+        @include('components.messages')
         <main>
             @yield('content')
         </main>

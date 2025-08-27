@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('pet_imagens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pet_id')->constrained('pets')->onDelete('cascade');
-            $table->string('caminho'); 
+            $table->foreignId('id_pet')->constrained('pets')->onDelete('cascade');
+            $table->string('path'); 
             $table->boolean('principal')->default(false); // define capa
             $table->timestamps();
         });

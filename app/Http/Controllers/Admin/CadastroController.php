@@ -11,7 +11,7 @@ class CadastroController extends Controller
 {
     public function execute()
     {
-        return view('admin.cadastro');
+        return view('pages.admin.cadastro');
     }
 
     public function post(Request $request)

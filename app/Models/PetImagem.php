@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class PetImagem extends Model
 {
-    protected $table = 'pet_imagem';
+    protected $table = 'pet_imagens';
 
     protected $fillable = [
         'id_pet',
-        'tipo',
         'path',
+        'principal'
     ];
 
     // Casts para tipos corretos

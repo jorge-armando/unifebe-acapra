@@ -15,7 +15,7 @@
 
             <p class="par2">Se for menor de idade, seus responsáveis devem responder o formulário!</p>
 
-            <form action="{{ route('adocao.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="/quero-adotar-post" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Informações Pessoais -->

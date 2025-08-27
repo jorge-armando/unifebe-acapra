@@ -19,7 +19,7 @@ class AnaliseFormController extends Controller
         }
 
         // Envia os dados para a view
-        return view('admin.analise_formulario', compact('adocao'));
+        return view('pages.admin.analise_formulario', compact('adocao'));
     }
 
     // Atualizar status (aprovado ou reprovado)

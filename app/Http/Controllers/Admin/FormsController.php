@@ -11,13 +11,13 @@ class FormsController extends Controller
     public function execute()
     {
         $forms = Adocao::orderBy('created_at', 'desc')->get();
-        return view('admin.forms', compact('forms'));
+        return view('pages.admin.forms', compact('forms'));
     }
 
     public function show($id)
     {
         $form = \App\Models\Adocao::findOrFail($id);
-        return view('admin.formsShow', compact('form'));
+        return view('pages.admin.formsShow', compact('form'));
     }
 
     public function aprovar($id)

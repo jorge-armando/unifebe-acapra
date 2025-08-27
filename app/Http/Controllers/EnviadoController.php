@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
@@ -8,6 +8,6 @@ class EnviadoController extends Controller
 {
     public function execute()
     {
-        return view('user.enviado_sucesso');
+        return view('pages.enviado_sucesso');
     }
 }

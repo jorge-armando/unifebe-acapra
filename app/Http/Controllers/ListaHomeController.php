@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pet;
@@ -12,6 +12,6 @@ class ListaHomeController extends Controller
         // Carrega os pets com imagens
         $pets = Pet::with('imagens')->get();
 
-        return view('user.lista', compact('pets'));
+        return view('pages.lista', compact('pets'));
     }
 }

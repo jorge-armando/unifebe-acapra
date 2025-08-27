@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('sexo');
             $table->integer('idade');
             $table->string('porte');
-            $table->json('detalhes')->nullable(); 
+            $table->string('detalhes')->nullable(); 
             $table->longText('historia')->nullable();
             $table->longText('complicacoes')->nullable();
             $table->longText('descricao')->nullable();

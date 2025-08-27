@@ -10,7 +10,11 @@ class LoginController extends Controller
 {
     public function execute(Request $request)
     {
-        return view('admin.login');
+        if (Auth::check()) {
+            return redirect('/admin');
+        }
+
+        return view('pages.admin.login');
     }
 
     public function post(Request $request)

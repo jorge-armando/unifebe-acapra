@@ -11,6 +11,6 @@ class AddPetController extends Controller
     public function execute($id)
     {
         $pet = Pet::with('imagens')->findOrFail($id);
-        return view('admin.editPet', compact('pet'));
+        return view('pages.admin.editPet', compact('pet'));
     }
 }

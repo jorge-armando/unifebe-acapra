@@ -25,6 +25,7 @@
     </head>
     <body>
         @include('components.header')
+        @include('components.messages')
         <main>
             @yield('content')
         </main>

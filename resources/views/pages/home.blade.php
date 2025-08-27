@@ -3,9 +3,15 @@
 @section('title', 'Página Inicial')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/userhome.css') }}">
 @endsection
 
 @section('content')
-    <h1>Bem-vindo à página inicial!</h1>
+  <main>
+    <h1>Página institucional</h1>
+<a href="/pets" class="main-btn">Ver lista de pets 🐾</a>
+  </main>
 @endsection
+
+
+

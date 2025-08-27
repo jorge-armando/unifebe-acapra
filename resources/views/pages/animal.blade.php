@@ -16,7 +16,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Imagem principal com botões -->
             <div class="relative w-[400px] h-[400px] mx-auto rounded-lg border border-gray-300 shadow overflow-hidden">
-                <img id="mainImage" src="{{ asset('storage/' . $pet->imagens[0]->caminho) }}"
+                <img id="mainImage" src="{{ asset('storage/' . $pet->imagens[0]->path) }}"
                     class="w-full h-full object-cover" style="width: 500px; height: 500px;" alt="Imagem do pet">
 
                 <!-- Botão anterior -->
@@ -65,7 +65,7 @@
                     </div>
                 @endif
 
-                <a href="{{ route('quero_adotar', ['id' => $pet->id]) }}">
+                <a href="{{ '/quero-adotar/' . $pet->id }}">
                     <button
                         class="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-4 py-2 rounded shadow text-sm">
                         Quero adotar 🐾

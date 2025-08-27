@@ -9,11 +9,11 @@ use App\Http\Controllers\Admin\AddPetController;
 use App\Http\Controllers\Admin\AddPetPostController;
 use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\Admin\CadastroController;
-use App\Http\Controllers\User\EnviadoController;
-use App\Http\Controllers\User\QueroAdotarController;
-use App\Http\Controllers\User\UserHomeController;
-use App\Http\Controllers\User\ListaHomeController;
-use App\Http\Controllers\User\AnimalHomeController;
+use App\Http\Controllers\EnviadoController;
+use App\Http\Controllers\QueroAdotarController;
+use App\Http\Controllers\UserHomeController;
+use App\Http\Controllers\ListaHomeController;
+use App\Http\Controllers\AnimalHomeController;
 use App\Http\Controllers\AdocaoController;
 use App\Http\Controllers\PetController;
 use App\Http\Middleware\AdminAuth;
@@ -21,8 +21,9 @@ use App\Http\Middleware\AdminAuth;
 Route::get('/', [UserHomeController::class, 'execute']);
 Route::get('/pets', [ListaHomeController::class, 'execute']);
 Route::get('/pets/{id}', [PetController::class, 'show'])->name('pets.show');
-Route::get('/quero-adotar/{id}', [AdocaoController::class, 'create'])->name('quero_adotar');
-Route::post('/quero-adotar', [AdocaoController::class, 'store'])->name('adocao.store');
+Route::get('/quero-adotar/{id}', [AdocaoController::class, 'create']);
+Route::get('/quero-adotar', [AdocaoController::class, 'create']);
+Route::post('/quero-adotar-post', [AdocaoController::class, 'store']);
 Route::get('/enviado', [EnviadoController::class, 'execute']);
 Route::get('/admin', [IndexController::class, 'execute'])->middleware(AdminAuth::class);
 Route::get('/admin/login', [LoginController::class, 'execute']);
@@ -53,7 +54,7 @@ Route::middleware([AdminAuth::class])->group(function () {
 });
 
 Route::fallback(function () {
-    return view('user.erro404');
+    return view('pages.erro404');
 });
 
 

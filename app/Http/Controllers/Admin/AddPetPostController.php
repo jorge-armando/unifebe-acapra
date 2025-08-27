@@ -13,7 +13,7 @@ class AddPetPostController extends Controller
     // Exibe o formulário para adicionar um pet
     public function execute()
     {
-        return view('admin.addPet');
+        return view('pages.admin.addPet');
     }
 
     // Salva um novo pet no banco
@@ -47,7 +47,7 @@ class AddPetPostController extends Controller
                 'sexo' => $request->sexo,
                 'idade' => $request->idade,
                 'porte' => $request->porte,
-                'detalhes' => $request->detalhes ?? [],
+                'detalhes' => implode(",", $request->detalhes),
                 'historia' => $request->historia,
                 'complicacoes' => $request->complicacoes,
                 'descricao' => $request->descricao,
@@ -55,9 +55,9 @@ class AddPetPostController extends Controller
 
             // Salva foto principal
             if ($request->hasFile('foto')) {
-                $path = $request->file('foto')->store('pets', 'public');
+                $path = $request->file('foto')->store('public/pets');
                 $pet->imagens()->create([
-                    'caminho' => $path,
+                    'path' => $path,
                     'principal' => true,
                 ]);
             }
@@ -65,9 +65,9 @@ class AddPetPostController extends Controller
             // Salva imagens extras
             if ($request->hasFile('imagens')) {
                 foreach ($request->file('imagens') as $imagem) {
-                    $path = $imagem->store('pets', 'public');
+                    $path = $imagem->store('public/pets');
                     $pet->imagens()->create([
-                        'caminho' => $path,
+                        'path' => $path,
                         'principal' => false,
                     ]);
                 }
@@ -127,7 +127,7 @@ class AddPetPostController extends Controller
 
             // Atualiza foto principal se enviada
             if ($request->hasFile('foto')) {
-                $path = $request->file('foto')->store('pets', 'public');
+                $path = $request->file('foto')->store('public/pets');
 
                 $antiga = $pet->fotoPrincipal;
                 if ($antiga) {
@@ -146,7 +146,7 @@ class AddPetPostController extends Controller
             // Adiciona novas imagens extras
             if ($request->hasFile('imagens')) {
                 foreach ($request->file('imagens') as $imagem) {
-                    $path = $imagem->store('pets', 'public');
+                    $path = $imagem->store('public/pets');
                     $pet->imagens()->create([
                         'caminho' => $path,
                         'principal' => false,
