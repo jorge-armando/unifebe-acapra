@@ -16,7 +16,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Imagem principal com botões -->
             <div class="relative w-[400px] h-[400px] mx-auto rounded-lg border border-gray-300 shadow overflow-hidden">
-                <img id="mainImage" src="{{ asset('storage/' . $pet->imagens[0]->path) }}"
+                <img id="mainImage" src="{{ asset('storage/' . $pet->imagens[0]->caminho) }}"
                     class="w-full h-full object-cover" style="width: 500px; height: 500px;" alt="Imagem do pet">
 
                 <!-- Botão anterior -->
@@ -89,7 +89,7 @@
             @foreach($pet->imagens as $imagem)
                 "{{ asset('storage/' . $imagem->caminho) }}",
             @endforeach
-        ];
+            ];
 
         function updateImage() {
             const img = document.getElementById('mainImage');
