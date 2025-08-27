@@ -23,8 +23,7 @@ Route::get('/pets', [ListaHomeController::class, 'execute']);
 Route::get('/pets/{id}', [PetController::class, 'show'])->name('pets.show');
 Route::get('/quero-adotar/{id}', [AdocaoController::class, 'create'])->name('quero_adotar');
 Route::post('/quero-adotar', [AdocaoController::class, 'store'])->name('adocao.store');
-Route::get('/quero-adotar/{id?}', [AdocaoController::class, 'create'])->name('quero_adotar');
-Route::get('/quero-adotar/enviado', [EnviadoController::class, 'execute']);
+Route::get('/enviado', [EnviadoController::class, 'execute']);
 Route::get('/admin', [IndexController::class, 'execute'])->middleware(AdminAuth::class);
 Route::get('/admin/login', [LoginController::class, 'execute']);
 Route::post('/admin/loginPost', [LoginController::class, 'post']);
@@ -56,3 +55,5 @@ Route::middleware([AdminAuth::class])->group(function () {
 Route::fallback(function () {
     return view('user.erro404');
 });
+
+

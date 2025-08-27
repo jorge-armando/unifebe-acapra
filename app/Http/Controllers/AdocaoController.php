@@ -9,8 +9,9 @@ use App\Models\Pet;
 
 class AdocaoController extends Controller
 {
-    public function store(Request $request)
-    {
+   public function store(Request $request)
+{
+    try {
         $request->validate([
             'nome_completo' => 'required|string|max:255',
             'data_nasc' => 'required|date',
@@ -51,8 +52,12 @@ class AdocaoController extends Controller
 
         Adocao::create($data);
 
-        return redirect('/quero-adotar/enviado')->with('success', 'Formulário enviado com sucesso!');
+        return redirect('/enviado')->with('success', 'Formulário enviado com sucesso!');
+    } catch (\Exception $e) {
+        // Exibe o erro diretamente na tela
+        dd($e->getMessage(), $e->getTraceAsString());
     }
+}
     public function create($id = null)
     {
         $pet = null;

@@ -100,8 +100,12 @@
                     <input type="radio" required class="radio-btn" name="cachorro_ou_gato" value="gato" @if(isset($pet) && strtolower(trim($pet->tipo)) === 'gato') checked @endif @if(isset($pet)) disabled @endif> Gato
                 </label><br><br>
 
+                @if(isset($pet))
+                    <input type="hidden" name="cachorro_ou_gato" value="{{ strtolower(trim($pet->tipo)) }}">
+                @endif
+
                 <label for="nome_pet" class="par1">Nome do pet que você quer adotar</label><br>
-                <input type="text" name="outros_animais" required id="outros_animais" class="input-field"
+                <input type="text" name="nome_animal" required id="nome_animal" class="input-field"
                     value="{{ $pet->nome ?? '' }}" @if(isset($pet)) readonly @endif>
 
                 <label for="outros_animais" class="par1">Você tem outros animais? Se sim, quantos e quais?</label><br>
