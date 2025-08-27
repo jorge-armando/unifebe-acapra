@@ -6,14 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class PetImagem extends Model
 {
-    // Força o Eloquent a usar o nome correto da tabela
-    protected $table = 'pet_imagens';
+    protected $table = 'pet_imagem';
 
-    // Campos que podem ser preenchidos em massa
     protected $fillable = [
-        'pet_id',   // Relacionamento com a tabela pets
-        'caminho',  // Caminho da imagem no storage
-        'principal' // Booleano: true se for a imagem principal
+        'id_pet',
+        'tipo',
+        'path',
     ];
 
     // Casts para tipos corretos
@@ -27,7 +25,7 @@ class PetImagem extends Model
      */
     public function pet()
     {
-        return $this->belongsTo(Pet::class);
+        return $this->belongsTo(Pet::class, 'id_pet', 'id');
     }
 
     /**

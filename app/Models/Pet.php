@@ -6,23 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pet extends Model
 {
-    protected $fillable = [
-        'tipo', 'mostrar', 'nome', 'raca', 'sexo', 
-        'idade', 'porte', 'detalhes', 'historia', 
-        'complicacoes', 'descricao'
-    ];
+    protected $table = 'pet'; // nome da tabela correta
 
-    protected $casts = [
-        'detalhes' => 'array',
+    protected $fillable = [
+        'tipo',
+        'raca',
+        'sexo',
+        'idade',
+        'porte',
+        'detalhes',
+        'historia',
+        'complicacao',
+        'descricao',
     ];
 
     public function imagens()
     {
-        return $this->hasMany(PetImagem::class);
-    }
-
-    public function fotoPrincipal()
-    {
-        return $this->hasOne(PetImagem::class)->where('principal', true);
+        // relaciona com pet_imagem (coluna id_pet)
+        return $this->hasMany(PetImagem::class, 'id_pet', 'id');
     }
 }
