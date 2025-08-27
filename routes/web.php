@@ -40,13 +40,23 @@ Route::get('/admin/pets', [IndexController::class, 'execute'])->name('admin.pets
 Route::get('/admin/pets/add', [AddPetPostController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/pets/add', [AddPetPostController::class, 'store'])->name('admin.pets.store')->middleware(AdminAuth::class);
 Route::get('/admin/pets/edit/{id}', [AddPetController::class, 'execute'])->name('admin.pets.edit')->middleware(AdminAuth::class);
-Route::get('/admin/forms', [formsController::class, 'execute'])->middleware(AdminAuth::class);
 Route::get('/admin/forms/{id}', [AnaliseFormController::class, 'execute'])->middleware(AdminAuth::class);
 Route::post('/admin/forms/{id}/status', [AnaliseFormController::class, 'updateStatus'])->name('adocao.updateStatus');
 Route::delete('/admin/pets/{id}', [AddPetPostController::class, 'destroy'])->name('admin.pets.destroy')->middleware(AdminAuth::class);
 Route::post('/admin/pets/edit/{id}', [AddPetPostController::class, 'update'])->name('admin.pets.update')->middleware(AdminAuth::class);
+Route::get('/admin/forms', [FormsController::class, 'execute'])->name('admin.forms')->middleware(AdminAuth::class);
+Route::get('/admin/forms/{id}/aprovar', [FormsController::class, 'aprovar'])->name('admin.forms.aprovar')->middleware(AdminAuth::class);
+Route::get('/admin/forms/{id}/reprovar', [FormsController::class, 'reprovar'])->name('admin.forms.reprovar')->middleware(AdminAuth::class);
+Route::get('/admin/forms/{id}', [FormsController::class, 'show'])->name('admin.forms.show')->middleware(AdminAuth::class);
+Route::post('/admin/forms/{id}/aprovar', [FormsController::class, 'aprovar'])->name('admin.forms.aprovar')->middleware(AdminAuth::class);
+Route::post('/admin/forms/{id}/reprovar', [FormsController::class, 'reprovar'])->name('admin.forms.reprovar')->middleware(AdminAuth::class);
 
-
+Route::middleware([AdminAuth::class])->group(function () {
+    Route::get('/admin/forms', [FormsController::class, 'execute'])->name('admin.forms');
+    Route::get('/admin/forms/{id}', [FormsController::class, 'show'])->name('admin.forms.show');
+    Route::get('/admin/forms/{id}/aprovar', [FormsController::class, 'aprovar'])->name('admin.forms.aprovar');
+    Route::get('/admin/forms/{id}/reprovar', [FormsController::class, 'reprovar'])->name('admin.forms.reprovar');
+});
 
 Route::fallback(function () {
     return view('user.erro404');
