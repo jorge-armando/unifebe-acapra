@@ -25,6 +25,6 @@ class Pet extends Model
     public function imagens()
     {
         // relaciona com pet_imagem (coluna id_pet)
-        return $this->hasMany(PetImagem::class, 'pet_id', 'id');
+        return $this->hasMany(PetImagem::class, 'id_pet', 'id');
     }
 }
