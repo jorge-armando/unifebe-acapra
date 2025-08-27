@@ -27,7 +27,7 @@
         <div class="card">
             @php
                 // Foto principal ou placeholder
-                $foto = $pet->fotoPrincipal ? asset('storage/' . $pet->fotoPrincipal->caminho) : asset('images/difusor.png');
+                $foto = $pet->fotoPrincipal ? asset('storage/' . $pet->fotoPrincipal->path) : asset('images/difusor.png');
             @endphp
 
             <img src="{{ $foto }}" alt="Pet">

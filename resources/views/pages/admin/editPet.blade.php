@@ -49,7 +49,7 @@
         <label for="detalhes">Detalhes:</label>
         <div class="detalhes-container">
             @php
-                $detalhes = $pet->detalhes ?? [];
+                $detalhes = $pet->detalhes ? explode(",", $pet->detalhes) : [];
             @endphp
             @foreach(['Brincalhão','Agressivo','Sociável','Adestrado','Medroso','Calmo','Idoso','Filhote','Vacinado','Castrado','FELV','FIV','Deficiente','Alergias'] as $det)
                 <label>
@@ -71,7 +71,7 @@
     <label>Foto principal atual</label>
     <div class="upload-container">
         @if($pet->fotoPrincipal)
-            <img src="{{ asset('storage/' . $pet->fotoPrincipal->caminho) }}" alt="Foto principal">
+            <img src="{{ asset('storage/' . $pet->fotoPrincipal->path) }}" alt="Foto principal">
         @else
             <img src="{{ asset('images/difusor.png') }}" alt="Placeholder">
         @endif

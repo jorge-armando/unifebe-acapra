@@ -131,8 +131,8 @@ class AddPetPostController extends Controller
 
                 $antiga = $pet->fotoPrincipal;
                 if ($antiga) {
-                    if (Storage::disk('public')->exists($antiga->caminho)) {
-                        Storage::disk('public')->delete($antiga->caminho);
+                    if (Storage::disk('public')->exists($antiga->path)) {
+                        Storage::disk('public')->delete($antiga->path);
                     }
                     $antiga->delete();
                 }
@@ -173,8 +173,8 @@ class AddPetPostController extends Controller
         $pet = Pet::findOrFail($id);
 
         foreach ($pet->imagens as $img) {
-            if (Storage::disk('public')->exists($img->caminho)) {
-                Storage::disk('public')->delete($img->caminho);
+            if (Storage::disk('public')->exists($img->path)) {
+                Storage::disk('public')->delete($img->path);
             }
         }
 
