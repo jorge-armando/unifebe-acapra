@@ -47,7 +47,7 @@ class AddPetPostController extends Controller
                 'sexo' => $request->sexo,
                 'idade' => $request->idade,
                 'porte' => $request->porte,
-                'detalhes' => implode(",", $request->detalhes),
+                'detalhes' => is_array($request->detalhes) ? implode(",", $request->detalhes) : $request->detalhes,
                 'historia' => $request->historia,
                 'complicacoes' => $request->complicacoes,
                 'descricao' => $request->descricao,
@@ -55,7 +55,7 @@ class AddPetPostController extends Controller
 
             // Salva foto principal
             if ($request->hasFile('foto')) {
-                $path = $request->file('foto')->store('public/pets');
+                $path = $request->file('foto')->store('pets', 'public');
                 $pet->imagens()->create([
                     'path' => $path,
                     'principal' => true,
@@ -65,7 +65,7 @@ class AddPetPostController extends Controller
             // Salva imagens extras
             if ($request->hasFile('imagens')) {
                 foreach ($request->file('imagens') as $imagem) {
-                    $path = $imagem->store('public/pets');
+                    $path = $imagem->store('pets', 'public');
                     $pet->imagens()->create([
                         'path' => $path,
                         'principal' => false,
@@ -77,7 +77,6 @@ class AddPetPostController extends Controller
 
             return redirect()->route('admin.pets.index')
                 ->with('success', 'Pet adicionado com sucesso!');
-
         } catch (\Exception $e) {
             DB::rollBack();
             return back()
@@ -127,7 +126,7 @@ class AddPetPostController extends Controller
 
             // Atualiza foto principal se enviada
             if ($request->hasFile('foto')) {
-                $path = $request->file('foto')->store('public/pets');
+                $path = $request->file('foto')->store('pets', 'public');
 
                 $antiga = $pet->fotoPrincipal;
                 if ($antiga) {
@@ -146,7 +145,7 @@ class AddPetPostController extends Controller
             // Adiciona novas imagens extras
             if ($request->hasFile('imagens')) {
                 foreach ($request->file('imagens') as $imagem) {
-                    $path = $imagem->store('public/pets');
+                    $path = $imagem->store('pets', 'public');
                     $pet->imagens()->create([
                         'caminho' => $path,
                         'principal' => false,
@@ -158,7 +157,6 @@ class AddPetPostController extends Controller
 
             return redirect()->route('admin.pets.index')
                 ->with('success', 'Pet atualizado com sucesso!');
-
         } catch (\Exception $e) {
             DB::rollBack();
             return back()
