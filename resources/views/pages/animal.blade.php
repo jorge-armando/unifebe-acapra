@@ -16,7 +16,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Imagem principal com botões -->
             <div class="relative w-[400px] h-[400px] mx-auto rounded-lg border border-gray-300 shadow overflow-hidden">
-                <img id="mainImage" src="{{ asset('storage/' . $pet->imagens[0]->caminho) }}"
+                <img id="mainImage" src="{{ asset('storage/' . $pet->imagens[0]->path) }}"
                     class="w-full h-full object-cover" style="width: 500px; height: 500px;" alt="Imagem do pet">
 
                 <!-- Botão anterior -->
@@ -46,12 +46,17 @@
                 <div class="bg-gray-100 p-4 rounded mb-2">
                     <h3 class="font-semibold mb-1">Detalhes 🔍</h3>
                     @if(is_array($pet->detalhes))
-                        @foreach($pet->detalhes as $detalhe)
-                            <span
-                                class="inline-block bg-indigo-200 text-indigo-800 px-3 py-1 rounded-full text-xs mr-2 mb-1">{{ $detalhe }}</span>
+                        @foreach($pet->detalhes as $index => $detalhe)
+                            <span class="inline-block bg-indigo-200 text-indigo-800 px-3 py-1 rounded-full text-xs mr-2 mb-1">
+                                {{ $detalhe }}
+                            </span>
+                            @if(!$loop->last)
+                                <span class="text-gray-500 mx-1">|</span>
+                            @endif
                         @endforeach
                     @endif
                 </div>
+
 
                 <div class="mb-2">
                     <h3 class="font-semibold mb-1">História 📖</h3>
@@ -87,7 +92,7 @@
         let currentIndex = 0;
         const images = [
             @foreach($pet->imagens as $imagem)
-                "{{ asset('storage/' . $imagem->caminho) }}",
+                "{{ asset('storage/' . $imagem->path) }}",
             @endforeach
             ];
 
