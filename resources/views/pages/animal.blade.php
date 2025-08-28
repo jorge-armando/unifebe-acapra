@@ -16,8 +16,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Imagem principal com botões -->
             <div class="relative w-[400px] h-[400px] mx-auto rounded-lg border border-gray-300 shadow overflow-hidden">
-                <img id="mainImage" src="{{ asset('storage/' . $pet->imagens[0]->path) }}"
-                    class="w-full h-full object-cover" style="width: 500px; height: 500px;" alt="Imagem do pet">
+@php
+    $principal = $pet->imagens->where('principal', true)->first();
+@endphp
+
+<img id="mainImage" src="{{ $principal ? asset('storage/' . $principal->path) : asset('images/difusor.png') }}"
+    class="w-full h-full object-cover" style="width: 500px; height: 500px;" alt="Imagem do pet">
+
 
                 <!-- Botão anterior -->
                 <button onclick="prevImage()"

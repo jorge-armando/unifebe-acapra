@@ -85,10 +85,9 @@ class AddPetPostController extends Controller
         }
     }
 
-    // Atualiza os dados de um pet existente
     public function update(Request $request, $id)
     {
-        $pet = Pet::findOrFail($id);
+        $pet = Pet::with('imagens')->findOrFail($id);
 
         $request->validate([
             'tipo' => 'required|string',
@@ -109,7 +108,7 @@ class AddPetPostController extends Controller
         DB::beginTransaction();
 
         try {
-            // Atualiza dados do pet
+            // 1) Atualiza campos básicos
             $pet->update([
                 'tipo' => $request->tipo,
                 'mostrar' => (bool)$request->mostrar,
@@ -118,38 +117,69 @@ class AddPetPostController extends Controller
                 'sexo' => $request->sexo,
                 'idade' => $request->idade,
                 'porte' => $request->porte,
-                'detalhes' => $request->detalhes ?? [],
+                'detalhes' => $request->detalhes ? implode(",", $request->detalhes) : null,
                 'historia' => $request->historia,
                 'complicacoes' => $request->complicacoes,
                 'descricao' => $request->descricao,
             ]);
 
-            // Atualiza foto principal se enviada
+            // 2) Remove imagens marcadas
+            $deleteIds = $request->input('delete_images', []);
+            if (!empty($deleteIds)) {
+                foreach ($deleteIds as $imgId) {
+                    $img = $pet->imagens()->where('id', $imgId)->first();
+                    if ($img) {
+                        if (Storage::disk('public')->exists($img->path)) {
+                            Storage::disk('public')->delete($img->path);
+                        }
+                        $img->delete();
+                    }
+                }
+            }
+
+            // 3) Troca de foto principal via upload
             if ($request->hasFile('foto')) {
                 $path = $request->file('foto')->store('pets', 'public');
 
-                $antiga = $pet->fotoPrincipal;
-                if ($antiga) {
-                    if (Storage::disk('public')->exists($antiga->path)) {
-                        Storage::disk('public')->delete($antiga->path);
-                    }
-                    $antiga->delete();
-                }
+                // Desmarca qualquer principal atual
+                $pet->imagens()->update(['principal' => false]);
 
+                // Cria nova principal
                 $pet->imagens()->create([
-                    'caminho' => $path,
+                    'path' => $path,
                     'principal' => true,
                 ]);
+
+                $pet->refresh(); // 🔹 atualiza o model e relacionamento
+            } 
+            // 4) Seleciona imagem existente como principal
+            elseif ($request->filled('principal')) {
+                $principalId = (int) $request->principal;
+                if (!in_array($principalId, $deleteIds)) {
+                    $pet->imagens()->update(['principal' => false]);
+                    $pet->imagens()->where('id', $principalId)->update(['principal' => true]);
+                    $pet->refresh(); // 🔹 garante que $pet->imagens esteja atualizado
+                }
             }
 
-            // Adiciona novas imagens extras
+            // 5) Adiciona novas imagens extras
             if ($request->hasFile('imagens')) {
                 foreach ($request->file('imagens') as $imagem) {
                     $path = $imagem->store('pets', 'public');
                     $pet->imagens()->create([
-                        'caminho' => $path,
+                        'path' => $path,
                         'principal' => false,
                     ]);
+                }
+                $pet->refresh(); // 🔹 atualiza coleção de imagens
+            }
+
+            // 6) Se não houver nenhuma principal, define a primeira existente
+            if (!$pet->imagens()->where('principal', true)->exists()) {
+                $first = $pet->imagens()->first();
+                if ($first) {
+                    $first->update(['principal' => true]);
+                    $pet->refresh(); // 🔹 garante que Blade veja a principal
                 }
             }
 

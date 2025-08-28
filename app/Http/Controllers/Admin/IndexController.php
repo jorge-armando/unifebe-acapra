@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function execute(Request $request)
     {
-        $query = Pet::query();
+        $query = Pet::with('imagens'); // já carrega as imagens
 
         // Filtro de busca
         if ($request->has('search') && $request->search != '') {
@@ -26,10 +26,11 @@ class IndexController extends Controller
         ];
 
         foreach ($pets as $pet) {
+            $principal = $pet->imagens->firstWhere('principal', true);
             $viewData["petList"][] = [
                 "id" => $pet->id,
                 "name" => $pet->nome,
-                "imagePath" => count($pet->imagens) > 0 ? asset('storage/' . $pet->imagens[0]->path) : asset('images/difusor.png')
+                "imagePath" => $principal ? asset('storage/' . $principal->path) : asset('images/difusor.png')
             ];
         }
 

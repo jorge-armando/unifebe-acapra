@@ -18,7 +18,7 @@ class Pet extends Model
         'porte',
         'detalhes',
         'historia',
-        'complicacao',
+        'complicacoes',
         'descricao',
     ];
 

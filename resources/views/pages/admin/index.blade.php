@@ -23,6 +23,7 @@
     @forelse($petList as $pet)
         <div class="card">
             <img src="{{ $pet['imagePath'] }}" alt="Pet">
+
             <div class="nome">{{ $pet['name'] }}</div>
             <div class="botoes">
                 <a href="{{ route('admin.pets.edit', $pet['id']) }}">Editar pet</a>
