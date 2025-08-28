@@ -10,5 +10,8 @@ Desenvolvido em Laravel
 * MariaDB
 
 ## Como rodar
+cd PROJECT_FOLDER
+./reset-database.sh
 php artisan serve
+
 Abrir a url http://127.0.0.1:8000/
