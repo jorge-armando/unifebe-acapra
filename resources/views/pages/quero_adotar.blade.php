@@ -18,7 +18,6 @@
             <form action="/quero-adotar-post" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                <!-- Informações Pessoais -->
                 <div class="info-container">
                     <img id="iconUser" src="{{ asset('images/iconUser.png') }}" alt="Imagem pessoa">
                     <span class="title3">Informações Pessoais</span>

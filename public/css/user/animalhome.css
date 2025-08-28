@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, sans-serif;
     background-color: #f6f6f6;
     color: #333;
     margin: 0;
@@ -34,7 +33,7 @@ nav a:hover {
     gap: 40px;
 }
 
-img {
+#mainImage {
     border-radius: 16px;
     max-width: 100%;
     margin-bottom: 15px;
@@ -66,7 +65,7 @@ h3 {
 .tag {
     display: inline-block;
     background-color: #e0d8f9;
-    color: #3d2a86;
+    color: #5c518c;
     padding: 6px 12px;
     font-size: 13px;
     border-radius: 50px;
@@ -87,7 +86,7 @@ button {
     letter-spacing: 0.5px;
 }
 button:hover {
-    background-color: #372b78;
+    background-color: #5c518c;
 }
 
 .description-box {
@@ -99,7 +98,7 @@ button:hover {
     letter-spacing: 0.4px;
 }
 .description-box p {
-    line-height: 1.9; /* Melhor leitura para textos longos */
+    line-height: 1.9;
     font-size: 15.5px;
     white-space: pre-line;
     letter-spacing: 0.3px;

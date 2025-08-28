@@ -10,7 +10,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 70vh; /* centraliza verticalmente */
+            height: 70vh;
             text-align: center;
         }
         .error-container h1 {

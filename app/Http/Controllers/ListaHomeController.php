@@ -5,40 +5,41 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Pet;
 use App\Models\PetImagem;
+use Illuminate\Http\Request;
 
 class ListaHomeController extends Controller
 {
-    public function execute()
+    public function execute(Request $request)
     {
         $query = Pet::query();
 
         // -------- Filtro por tipo (Gato/Cachorro) --------
-        $tipos = request()->get('tipo', []); // array ou vazio
+        $tipos = $request->get('tipo', []);
         if (!empty($tipos)) {
             // normaliza para Capitalizado (Gato/Cachorro)
             $tiposNorm = array_map(function ($v) {
-                $v = trim($v);
-                return mb_convert_case($v, MB_CASE_TITLE, 'UTF-8'); // gato -> Gato
-            }, (array)$tipos);
+                return mb_convert_case(trim($v), MB_CASE_TITLE, 'UTF-8');
+            }, (array) $tipos);
 
             $query->whereIn('tipo', $tiposNorm);
         }
 
         // -------- Filtro por porte --------
-        $porteInput = request()->get('porte', []); // pode vir 'P','M','G' ou 'pequeno','médio','grande'
-        if (!empty($porteInput)) {
+        $portes = $request->get('porte', []);
+        if (!empty($portes)) {
+            // Mapeia os valores do form para os valores do banco
             $map = [
-                'P' => 'pequeno',
-                'M' => 'médio',
-                'G' => 'grande',
-                'GG' => 'gigante', // se você usar GG no futuro
+                'pequeno' => 'P',
+                'médio' => 'M',
+                'grande' => 'G',
             ];
 
             $portesNorm = [];
-            foreach ((array)$porteInput as $p) {
+            foreach ((array) $portes as $p) {
                 $p = trim($p);
-                // mapeia letra -> texto, ou deixa como veio
-                $portesNorm[] = $map[$p] ?? $p;
+                if (isset($map[$p])) {
+                    $portesNorm[] = $map[$p];
+                }
             }
 
             // remove duplicados
@@ -48,20 +49,22 @@ class ListaHomeController extends Controller
         }
 
         // -------- Filtro por idade --------
-        $minIdade = (int) request()->get('idade_min', 0);
-        $maxIdade = (int) request()->get('idade_max', 30);
+        $minIdade = (int) $request->get('idade_min', 0);
+        $maxIdade = (int) $request->get('idade_max', 30);
+
         if ($minIdade > $maxIdade) {
             [$minIdade, $maxIdade] = [$maxIdade, $minIdade];
         }
+
         $query->whereBetween('idade', [$minIdade, $maxIdade]);
 
-        // Executa a query
+        // -------- Recupera pets --------
         $pets = $query->get();
 
-        // Anexa caminho da imagem principal (se houver)
+        // -------- Anexa imagem principal --------
         foreach ($pets as $pet) {
             $pet->imagem = PetImagem::where('id_pet', $pet->id)
-                ->where('principal', '1 ')
+                ->where('principal', 1)
                 ->value('path');
         }
 

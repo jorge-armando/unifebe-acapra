@@ -49,14 +49,12 @@ html, body {
     font-size: 16px;
 }
 
-/* Container geral da página */
 .page-container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Formulário */
 .form-container {
     display: flex;
     flex-direction: column;
@@ -95,7 +93,6 @@ label {
     font-size: 18px;
 }
 
-/* Botões */
 .submit-button,
 .submit-button2 {
     background-color: var(--paleta1);
@@ -118,7 +115,6 @@ label {
     font-size: 15px;
 }
 
-/* Upload de arquivo */
 .upload-container input[type="file"] {
     padding: 10px;
     background-color: #5c518c;
